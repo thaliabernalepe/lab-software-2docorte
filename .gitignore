@@ -1,0 +1,11 @@
+# Ignorar archivos y carpetas específicos de NetBeans
+frontend/nbproject/
+frontend/build/
+frontend/dist/
+frontend/*.class
+
+# Ignorar archivos y carpetas específicos de Visual Studio Code
+backend/.vscode/
+backend/node_modules/
+backend/dist/
+backend/*.log
