@@ -45,14 +45,17 @@ public class ConferenciaRepository {
         return bandera;
     }
     
-    public Integer cantidadArticulosConferencia(Integer id){
+    public Integer cantidadArticulosConferencia(Integer idConferencia){
         System.out.println("Invocando a consultar cantidad de articulos enviados a una conferencia");
         Integer cantidad = 0;
         for (int i = 0; i < this.listaConferencias.size(); i++){
-            List<ArticuloEntity> listaArticulos = this.listaConferencias.get(i).getListaArticulos();
-            cantidad = listaArticulos.size();
+            ConferenciaEntity objConferencia = this.listaConferencias.get(i);
+            if(objConferencia.getId().equals(idConferencia)){
+                List<ArticuloEntity> listaArticulos = objConferencia.getListaArticulos();
+                cantidad = listaArticulos.size();
+                return cantidad;
+            }
         }
-
         return cantidad;
     }
 
@@ -81,6 +84,7 @@ public class ConferenciaRepository {
         ArticuloEntity objArticulo2 = new ArticuloEntity();
         objArticulo2.setId(1);
         listaArticulosConferencia2.add(objArticulo2);
+        listaArticulosConferencia1.add(objArticulo2);
 
         ArrayList<ArticuloEntity> listaArticulosConferencia3 = new ArrayList<>();
         ArticuloEntity objArticulo3 = new ArticuloEntity();

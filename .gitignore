@@ -9,3 +9,5 @@ backend/.vscode/
 backend/node_modules/
 backend/dist/
 backend/*.log
+frontend/cliente/target/classes/.netbeans_automatic_build
+frontend/cliente/target/test-classes/.netbeans_automatic_build
