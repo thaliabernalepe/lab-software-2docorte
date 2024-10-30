@@ -3,8 +3,8 @@ package co.edu.unicauca.swii.proyecto_api_rest_articulo.rabbit;
 import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.stereotype.Service;
 
-import co.edu.unicauca.swii.proyecto_api_rest_articulo.fachadaServices.DTO.ArticuloDTO;
-//import co.edu.unicauca.swii.proyecto_api_rest_articulo.fachadaServices.DTO.ArticuloConConferencia.ArticuloConConferenciasDTO;
+//import co.edu.unicauca.swii.proyecto_api_rest_articulo.fachadaServices.DTO.ArticuloDTO;
+import co.edu.unicauca.swii.proyecto_api_rest_articulo.fachadaServices.DTO.ArticuloConConferencia.ArticuloConConferenciasDTO;
 
 @Service
 public class MessageProducer {
@@ -17,7 +17,7 @@ public class MessageProducer {
         this.amqpTemplate = amqpTemplate;
     }
 
-    public void sendMessage(ArticuloDTO objArticuloCreado) {
+    public void sendMessage(ArticuloConConferenciasDTO objArticuloCreado) {
         amqpTemplate.convertAndSend(exchange, routingKey, objArticuloCreado);
         System.out.println("Datos del Articulo enviados a la cola");
     }

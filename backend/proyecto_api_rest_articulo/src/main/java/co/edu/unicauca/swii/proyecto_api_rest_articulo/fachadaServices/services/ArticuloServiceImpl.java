@@ -44,8 +44,8 @@ public class ArticuloServiceImpl implements IArticuloService {
         ArticuloEntity articuloEntity = this.modelMapper.map(articulo, ArticuloEntity.class);
         ArticuloEntity objArticuloEntity = this.servicioAccesoDatos.save(articuloEntity);
         ArticuloDTO ArticuloDTO = this.modelMapper.map(objArticuloEntity, ArticuloDTO.class);
-        //ArticuloConConferenciasDTO objArticuloConConferenciasDTO = new ArticuloConConferenciasDTO(ArticuloDTO, null);
-        producer.sendMessage(ArticuloDTO);
+        ArticuloConConferenciasDTO objArticuloConConferenciasDTO = new ArticuloConConferenciasDTO(ArticuloDTO, null);
+        producer.sendMessage(objArticuloConConferenciasDTO);
         return ArticuloDTO;
     }
 

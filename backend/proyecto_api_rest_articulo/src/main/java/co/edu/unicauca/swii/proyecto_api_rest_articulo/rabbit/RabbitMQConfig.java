@@ -25,7 +25,7 @@ public class RabbitMQConfig {
 
     @Bean
     public Binding binding(Queue myQueue, DirectExchange exchange) {
-        return BindingBuilder.bind(myQueue).to(exchange).with("routingKey");
+        return BindingBuilder.bind(myQueue).to(exchange).with("myRoutingKey");
     }
 
     @Bean
