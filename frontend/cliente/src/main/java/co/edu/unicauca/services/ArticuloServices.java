@@ -6,6 +6,7 @@ import java.util.List;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Entity;
+import javax.ws.rs.client.Invocation;
 import javax.ws.rs.client.Invocation.Builder;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.GenericType;
@@ -69,6 +70,16 @@ public class ArticuloServices {
         bandera = objPeticion.delete(Boolean.class);
         return bandera;
     }
+    
+    //Metodo para consultar si existe un articulo
+    public Boolean consultarsiExiste(Integer id) {
+        Boolean bandera = false;
+        WebTarget target = client.target(this.endPoint+"/existe?id="+id);
+        Invocation.Builder objPeticion = target.request(MediaType.APPLICATION_JSON_TYPE);
+        bandera = objPeticion.get(Boolean.class);
+        return bandera;
+    }
+    
 }
 
 

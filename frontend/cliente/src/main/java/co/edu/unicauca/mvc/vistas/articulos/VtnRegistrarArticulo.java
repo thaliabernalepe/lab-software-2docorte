@@ -52,6 +52,8 @@ public class VtnRegistrarArticulo extends javax.swing.JInternalFrame {
         jLabelResumenFormato = new javax.swing.JLabel();
         jComboBoxFormato = new javax.swing.JComboBox<>();
         jTextAreaAutores = new javax.swing.JTextField();
+        jLabelconferenciaAsociada = new javax.swing.JLabel();
+        jComboBoxConferncias = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -126,6 +128,9 @@ public class VtnRegistrarArticulo extends javax.swing.JInternalFrame {
 
         jComboBoxFormato.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "PDF", "DOCX", "LaTeX", "RTF", "ODT", "HTML", "TXT" }));
 
+        jLabelconferenciaAsociada.setFont(new java.awt.Font("Gloucester MT Extra Condensed", 0, 14)); // NOI18N
+        jLabelconferenciaAsociada.setText("Conferencia: ");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -143,6 +148,10 @@ public class VtnRegistrarArticulo extends javax.swing.JInternalFrame {
                     .addComponent(jTextAreaAutores, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE))
                 .addGap(59, 59, 59)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabelconferenciaAsociada)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jComboBoxConferncias, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabelTipo)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -180,6 +189,10 @@ public class VtnRegistrarArticulo extends javax.swing.JInternalFrame {
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabelResumenInstitucion)
                             .addComponent(jTextFieldTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(39, 39, 39)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabelconferenciaAsociada)
+                            .addComponent(jComboBoxConferncias, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButtonRegistrar)
                         .addContainerGap())
@@ -243,6 +256,7 @@ public class VtnRegistrarArticulo extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonRegistrar;
+    private javax.swing.JComboBox<String> jComboBoxConferncias;
     private javax.swing.JComboBox<String> jComboBoxFormato;
     private javax.swing.JComboBox<String> jComboBoxTipo;
     private javax.swing.JLabel jLabelAutores;
@@ -252,6 +266,7 @@ public class VtnRegistrarArticulo extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabelResumenInstitucion;
     private javax.swing.JLabel jLabelTipo;
     private javax.swing.JLabel jLabelTitulo;
+    private javax.swing.JLabel jLabelconferenciaAsociada;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

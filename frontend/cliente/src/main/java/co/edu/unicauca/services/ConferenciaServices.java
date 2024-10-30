@@ -50,9 +50,8 @@ public class ConferenciaServices {
         Invocation.Builder objPeticion = target.request(MediaType.APPLICATION_JSON_TYPE);
         bandera = objPeticion.get(Boolean.class);
         return bandera;
-       
-       
     }
 
- 
+ // Metodo cantidad articulos enviados
+    
 }

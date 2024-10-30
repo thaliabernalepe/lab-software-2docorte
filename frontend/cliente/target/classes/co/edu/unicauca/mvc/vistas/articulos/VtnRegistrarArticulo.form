@@ -128,6 +128,11 @@
                   <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
+                          <Component id="jLabelconferenciaAsociada" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="jComboBoxConferncias" max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
                           <Component id="jLabelTipo" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -175,6 +180,11 @@
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabelResumenInstitucion" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jTextFieldTitulo" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jLabelconferenciaAsociada" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jComboBoxConferncias" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="32767" attributes="0"/>
                           <Component id="jButtonRegistrar" min="-2" max="-2" attributes="0"/>
@@ -298,6 +308,24 @@
           </AuxValues>
         </Component>
         <Component class="javax.swing.JTextField" name="jTextAreaAutores">
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabelconferenciaAsociada">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Gloucester MT Extra Condensed" size="14" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Conferencia: "/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="jComboBoxConferncias">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="0"/>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
         </Component>
       </SubComponents>
     </Container>
