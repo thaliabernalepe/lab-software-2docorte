@@ -40,8 +40,8 @@ public class ConferenciaRestController {
     }
 
     @GetMapping("/conferencias/articulos")
-    public Integer consultarArticulosEnviados(@RequestParam Integer id) {
-        Integer cantidadArtEnviados = conferenciaService.cantidadArticulos(id);
+    public Integer consultarArticulosEnviados(@RequestParam Integer idConferencia) {
+        Integer cantidadArtEnviados = conferenciaService.cantidadArticulos(idConferencia);
         return cantidadArtEnviados;
     }
 

@@ -8,7 +8,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 public class ConferenciaDTO {
-    private Integer id;
+    private Integer idConferencia;
     private String nombre;
     private Integer cantMaxArticulos;
 

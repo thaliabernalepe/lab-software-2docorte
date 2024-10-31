@@ -15,19 +15,19 @@ import co.edu.unicauca.swii.proyecto_api_rest_conferencia.fachadaServices.DTO.Co
 public class ConferenciaServiceImpl implements IConferenciaService{
 
     @Autowired
-    private ConferenciaRepository servicioAccesdoDatos;
+    private ConferenciaRepository servicioAccesoDatos;
 
     @Autowired
     private ModelMapper modelMapper;
 
     public ConferenciaServiceImpl(ConferenciaRepository servicioAccesdoDatos, ModelMapper modelMapper) {
-        this.servicioAccesdoDatos = servicioAccesdoDatos;
+        this.servicioAccesoDatos = servicioAccesdoDatos;
         this.modelMapper = modelMapper;
     }
 
     @Override
     public List<ConferenciaDTO> findAll() {
-        List<ConferenciaEntity> conferenciasEntity = this.servicioAccesdoDatos.findAll();
+        List<ConferenciaEntity> conferenciasEntity = this.servicioAccesoDatos.findAll();
         List<ConferenciaDTO> conferenciasDTO = this.modelMapper.map(conferenciasEntity, new TypeToken<List<ConferenciaDTO>>(){
         }.getType());
         return conferenciasDTO;
@@ -36,24 +36,24 @@ public class ConferenciaServiceImpl implements IConferenciaService{
     @Override
     public ConferenciaDTO save(ConferenciaDTO conferencia) {
         ConferenciaEntity conferenciaEntity = this.modelMapper.map(conferencia, ConferenciaEntity.class);
-        ConferenciaEntity objConferenciaEntity = this.servicioAccesdoDatos.save(conferenciaEntity);
+        ConferenciaEntity objConferenciaEntity = this.servicioAccesoDatos.save(conferenciaEntity);
         ConferenciaDTO conferenciaDTO = this.modelMapper.map(objConferenciaEntity, ConferenciaDTO.class);
         return conferenciaDTO;
     }
 
     @Override
     public boolean exist(Integer id) {
-        return this.servicioAccesdoDatos.exist(id);
+        return this.servicioAccesoDatos.exist(id);
     }
 
     @Override
     public Integer cantidadArticulos(Integer id) {
-        return this.servicioAccesdoDatos.cantidadArticulosConferencia(id);
+        return this.servicioAccesoDatos.cantidadArticulosConferencia(id);
     }
 
     @Override
     public List<ConferenciaDTO> listarConferenciasArticulo (Integer id){
-        List<ConferenciaEntity> conferenciasEntity = this.servicioAccesdoDatos.ListarConferenciasArticulo(id);
+        List<ConferenciaEntity> conferenciasEntity = this.servicioAccesoDatos.ListarConferenciasArticulo(id);
         List<ConferenciaDTO> conferenciasDTO = this.modelMapper.map(conferenciasEntity, new TypeToken<List<ConferenciaDTO>>(){
         }.getType());
         return conferenciasDTO;

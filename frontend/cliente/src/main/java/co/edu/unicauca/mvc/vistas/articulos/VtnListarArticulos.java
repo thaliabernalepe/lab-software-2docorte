@@ -32,10 +32,10 @@ public class VtnListarArticulos extends javax.swing.JInternalFrame {
         model.addColumn("Titulo");
         model.addColumn("Autores");
         model.addColumn("Estado");
-        model.addColumn("Revisor");
+        //model.addColumn("Revisor");
         model.addColumn("Eliminar");
         model.addColumn("Actualizar");
-        model.addColumn("Asignar Revisor");
+        //model.addColumn("Asignar Revisor");
         this.jTableListarArticulos.setModel(model);
     }
 
@@ -62,9 +62,9 @@ public class VtnListarArticulos extends javax.swing.JInternalFrame {
         JButtonActualizarArticulo.setName("Actualizar");
         JButtonActualizarArticulo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/aplicar.png")));
 
-        JButton JButtonAsignarRevisor = new JButton();
-        JButtonAsignarRevisor.setName("AsignarRevisor");
-        JButtonAsignarRevisor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/assing.png")));
+//        JButton JButtonAsignarRevisor = new JButton();
+//        JButtonAsignarRevisor.setName("AsignarRevisor");
+//        JButtonAsignarRevisor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/assing.png")));
 
         for (int i = 0; i < listaArticulos.size(); i++) {
             //Revisor revisor = listaArticulos.get(i).getRevisor();
@@ -76,8 +76,8 @@ public class VtnListarArticulos extends javax.swing.JInternalFrame {
                 listaArticulos.get(i).getEstadoRevision(),
                 //revisorString,
                 JButtonEliminarArticulo,
-                JButtonActualizarArticulo,
-                JButtonAsignarRevisor};
+                JButtonActualizarArticulo};
+                //JButtonAsignarRevisor};
             model.addRow(fila);
         }
 

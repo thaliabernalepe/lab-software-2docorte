@@ -37,7 +37,7 @@ public class ConferenciaRepository {
         boolean bandera = false;
 
         for(int i=0; i < this.listaConferencias.size(); i++){
-            if(this.listaConferencias.get(i).getId() == id){
+            if(this.listaConferencias.get(i).getIdConferencia() == id){
                 bandera = true;
                 break;
             }
@@ -50,7 +50,7 @@ public class ConferenciaRepository {
         Integer cantidad = 0;
         for (int i = 0; i < this.listaConferencias.size(); i++){
             ConferenciaEntity objConferencia = this.listaConferencias.get(i);
-            if(objConferencia.getId().equals(idConferencia)){
+            if(objConferencia.getIdConferencia().equals(idConferencia)){
                 List<ArticuloEntity> listaArticulos = objConferencia.getListaArticulos();
                 cantidad = listaArticulos.size();
                 return cantidad;
@@ -65,7 +65,7 @@ public class ConferenciaRepository {
         for (int i = 0; i < this.listaConferencias.size(); i++){
             List<ArticuloEntity> listaArticulos = this.listaConferencias.get(i).getListaArticulos();
             for ( int j=0; j < listaArticulos.size(); j++){
-                if(listaArticulos.get(j).getId() == idArticulo){
+                if(listaArticulos.get(j).getIdArticulo() == idArticulo){
                     listaConferencias.add(this.listaConferencias.get(i));
                     break;
                 }
@@ -77,18 +77,18 @@ public class ConferenciaRepository {
     private void cargarConferencias(){
         ArrayList<ArticuloEntity> listaArticulosConferencia1 = new ArrayList<>();
         ArticuloEntity objArticulo1 = new ArticuloEntity();
-        objArticulo1.setId(1);
+        objArticulo1.setIdArticulo(1);
         listaArticulosConferencia1.add(objArticulo1);
 
         ArrayList<ArticuloEntity> listaArticulosConferencia2 = new ArrayList<>();
         ArticuloEntity objArticulo2 = new ArticuloEntity();
-        objArticulo2.setId(1);
+        objArticulo2.setIdArticulo(1);
         listaArticulosConferencia2.add(objArticulo2);
         listaArticulosConferencia1.add(objArticulo2);
 
         ArrayList<ArticuloEntity> listaArticulosConferencia3 = new ArrayList<>();
         ArticuloEntity objArticulo3 = new ArticuloEntity();
-        objArticulo3.setId(1);
+        objArticulo3.setIdArticulo(1);
         listaArticulosConferencia3.add(objArticulo3);
 
         ConferenciaEntity objConferencia1 = new ConferenciaEntity(1, "IA", 10, listaArticulosConferencia1);

@@ -10,7 +10,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 public class ConferenciaEntity {
-    private Integer id;
+    private Integer idConferencia;
     private String nombre;
     private Integer cantMaxArticulos;
     private List<ArticuloEntity> listaArticulos;

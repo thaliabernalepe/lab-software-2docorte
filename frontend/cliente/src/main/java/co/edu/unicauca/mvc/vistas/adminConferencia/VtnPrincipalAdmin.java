@@ -39,8 +39,8 @@ public class VtnPrincipalAdmin extends javax.swing.JFrame {
         this.objVtnVerEstadisticas=new VtnVerEstadisticas();         
         this.jDesktopPanelPrincipal.add(this.objVtnVerEstadisticas);
         
-        this.objVtnRegistrarArticulos= new VtnRegistrarArticulo(this.servicioArticulo, this.servicioConferencia);
-        this.jDesktopPanelPrincipal.add(this.objVtnRegistrarArticulos);
+//        this.objVtnRegistrarArticulos= new VtnRegistrarArticulo(this.servicioArticulo, this.servicioConferencia);
+//        this.jDesktopPanelPrincipal.add(this.objVtnRegistrarArticulos);
         
         this.objVtnListarConferencias= new VtnListarConferencias(this.servicioConferencia);
         this.jDesktopPanelPrincipal.add(this.objVtnListarConferencias);

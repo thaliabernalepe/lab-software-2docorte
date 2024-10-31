@@ -8,7 +8,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 public class ArticuloEntity {
-    private Integer id;
+    private Integer idArticulo;
 
     public ArticuloEntity() {
 
