@@ -20,8 +20,8 @@ public class ConferenciaServiceImpl implements IConferenciaService{
     @Autowired
     private ModelMapper modelMapper;
 
-    public ConferenciaServiceImpl(ConferenciaRepository servicioAccesdoDatos, ModelMapper modelMapper) {
-        this.servicioAccesoDatos = servicioAccesdoDatos;
+    public ConferenciaServiceImpl(ConferenciaRepository servicioAccesoDatos, ModelMapper modelMapper) {
+        this.servicioAccesoDatos = servicioAccesoDatos;
         this.modelMapper = modelMapper;
     }
 

@@ -10,6 +10,7 @@ public class Conferencia {
     private Date fechaInicio;
     private Date fechaFin;
     private float costoInscripcion;
+    private int cantMaxArticulos;
 
     private ArrayList<Articulo> articulosEnviados;
     private ArrayList<Revisor> revisores;
@@ -69,6 +70,14 @@ public class Conferencia {
 
     public ArrayList<Articulo> getArticulosEnviados() {
         return articulosEnviados;
+    }
+    
+    public void setCantMaxArticulos(int cantMaxArticulos) {
+        this.cantMaxArticulos = cantMaxArticulos;
+    }
+    
+    public int getCantMaxArticulos(){
+        return cantMaxArticulos;
     }
 
     public void setArticulosEnviados(ArrayList<Articulo> articulosEnviados) {

@@ -207,14 +207,14 @@ public class VtnPrincipalAdmin extends javax.swing.JFrame {
 
     private void jButtonVerEstadisticasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVerEstadisticasActionPerformed
         this.objVtnVerEstadisticas.setVisible(true);
-        this.objVtnRegistrarArticulos.setVisible(false);
+        this.objVtnListarArticulos.setVisible(false);
         this.objVtnListarConferencias.setVisible(false);
     }//GEN-LAST:event_jButtonVerEstadisticasActionPerformed
 
     private void jButtonGestionarConferenciasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGestionarConferenciasActionPerformed
         this.objVtnListarConferencias.setVisible(true);
         this.objVtnVerEstadisticas.setVisible(false);
-        this.objVtnRegistrarArticulos.setVisible(false);
+        this.objVtnListarArticulos.setVisible(false);
     }//GEN-LAST:event_jButtonGestionarConferenciasActionPerformed
 
     
