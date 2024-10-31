@@ -26,8 +26,8 @@ public class Test {
 //        objServicio2.addObserver(revisor1);
 //        objServicio2.addObserver(revisor2);
         
-        VtnPrincipalAsistente objVtnAsistente=new VtnPrincipalAsistente();
-        VtnPrincipalAutor objVtnAutor= new VtnPrincipalAutor();
+//        VtnPrincipalAsistente objVtnAsistente=new VtnPrincipalAsistente();
+//        VtnPrincipalAutor objVtnAutor= new VtnPrincipalAutor();
         
 //        objServicio1.addObserver(objVtnAsistente);
 //        objServicio1.addObserver(objVtnAutor);
@@ -45,8 +45,8 @@ public class Test {
 //        objServicio3.almacenarRevisor(revisorPrueba3);
         
         objVtnPrincipal.setVisible(true);
-        objVtnAsistente.setVisible(true);
-        objVtnAutor.setVisible(true);
+//        objVtnAsistente.setVisible(true);
+//        objVtnAutor.setVisible(true);
     }
     
     private static void seleccionarLookAndField()
