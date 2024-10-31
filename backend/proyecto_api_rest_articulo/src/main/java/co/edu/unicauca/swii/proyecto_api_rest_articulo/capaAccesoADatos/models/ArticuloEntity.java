@@ -8,11 +8,11 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 public class ArticuloEntity {
-    private Integer id;
-    private String nombre;
+    private Integer idArticulo;
+    private String titulo;
     private String autores;
     private Integer cantidadAutores;
-    private String revista;
+    private String estadoRevision;
 
     public ArticuloEntity() {
         

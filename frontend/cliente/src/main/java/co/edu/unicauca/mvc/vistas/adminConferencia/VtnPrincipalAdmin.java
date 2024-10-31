@@ -2,6 +2,8 @@ package co.edu.unicauca.mvc.vistas.adminConferencia;
 
 import co.edu.unicauca.mvc.vistas.articulos.VtnListarArticulos;
 import co.edu.unicauca.mvc.vistas.articulos.VtnRegistrarArticulo;
+import co.edu.unicauca.services.ArticuloServices;
+import co.edu.unicauca.services.ConferenciaServices;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -12,8 +14,8 @@ public class VtnPrincipalAdmin extends javax.swing.JFrame {
     private VtnRegistrarArticulo objVtnRegistrarArticulos;
     private VtnListarConferencias objVtnListarConferencias;
     private VtnListarArticulos objVtnListarArticulos;
-//    private ServicioAlmacenamientoConferencias objServicio1;   
-//    private ServicioAlmacenamientoArticulos  objServicio2;
+    private ArticuloServices servicioArticulo;   
+    private ConferenciaServices  servicioConferencia;
 //    private ServicioAlmacenamientoRevisor  objServicio3;
         
     public VtnPrincipalAdmin() {
@@ -22,30 +24,29 @@ public class VtnPrincipalAdmin extends javax.swing.JFrame {
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
     
-//    public void asociarServios(
-//            ServicioAlmacenamientoConferencias objServicio1,
-//            ServicioAlmacenamientoArticulos objServicio2,
-//            ServicioAlmacenamientoRevisor  objServicio3)
-//    {
-//        this.objServicio1=objServicio1;
-//        this.objServicio2=objServicio2;
-//        this.objServicio3=objServicio3;
-//        relacionarInternalFrameConJdesptokPane();
-//    }
+    public void asociarServios(
+            ArticuloServices servicioArticulo,
+            ConferenciaServices servicioConferencia)
+    {
+        this.servicioArticulo=servicioArticulo;
+        this.servicioConferencia=servicioConferencia;
+        //this.objServicio3=objServicio3;
+        relacionarInternalFrameConJdesptokPane();
+    }
     
     private void relacionarInternalFrameConJdesptokPane()
     {
         this.objVtnVerEstadisticas=new VtnVerEstadisticas();         
         this.jDesktopPanelPrincipal.add(this.objVtnVerEstadisticas);
         
-//        this.objVtnRegistrarArticulos= new VtnRegistrarArticulo(this.objServicio2, this.objServicio1);
-//        this.jDesktopPanelPrincipal.add(this.objVtnRegistrarArticulos);
-//        
-//        this.objVtnListarConferencias= new VtnListarConferencias(this.objServicio1);
-//        this.jDesktopPanelPrincipal.add(this.objVtnListarConferencias);
-//        
-//        this.objVtnListarArticulos = new VtnListarArticulos(this.objServicio2, this.objServicio1, this.objServicio3);
-//        this.jDesktopPanelPrincipal.add(this.objVtnListarArticulos);
+        this.objVtnRegistrarArticulos= new VtnRegistrarArticulo(this.servicioArticulo, this.servicioConferencia);
+        this.jDesktopPanelPrincipal.add(this.objVtnRegistrarArticulos);
+        
+        this.objVtnListarConferencias= new VtnListarConferencias(this.servicioConferencia);
+        this.jDesktopPanelPrincipal.add(this.objVtnListarConferencias);
+        
+        this.objVtnListarArticulos = new VtnListarArticulos(this.servicioArticulo, this.servicioConferencia);
+        this.jDesktopPanelPrincipal.add(this.objVtnListarArticulos);
     }
 
     private void establecerIconoOrganización()

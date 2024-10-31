@@ -1,13 +1,12 @@
 
 package co.edu.unicauca.mvc.vistas.articulos;
 
-import co.edu.unicauca.mvc.infraestructura.Observer;
 import co.edu.unicauca.mvc.modelos.Articulo;
 import co.edu.unicauca.mvc.modelos.Conferencia;
 import co.edu.unicauca.mvc.modelos.EstadoRevision;
 import co.edu.unicauca.mvc.utilidades.Utilidades;
-import java.util.ArrayList;
-import java.util.LinkedList;
+import co.edu.unicauca.services.ArticuloServices;
+import co.edu.unicauca.services.ConferenciaServices;
 
 /**
  *
@@ -15,16 +14,16 @@ import java.util.LinkedList;
  */
 public class VtnRegistrarArticulo extends javax.swing.JInternalFrame {
 
-//    private ServicioAlmacenamientoArticulos objServicio1;
-//    private ServicioAlmacenamientoConferencias objServicio2;
-//
-//    public VtnRegistrarArticulo(
-//            ServicioAlmacenamientoArticulos objServicio1,
-//            ServicioAlmacenamientoConferencias objServicio2) {
-//        initComponents();
-//        this.objServicio1 = objServicio1;
-//        this.objServicio2 = objServicio2;
-//    }
+    private ArticuloServices servicioArticulo;
+    private ConferenciaServices servicioConferencia;
+
+    public VtnRegistrarArticulo(
+            ArticuloServices servicioArticulo,
+            ConferenciaServices servicioConferencia) {
+        initComponents();
+        this.servicioArticulo = servicioArticulo;
+        this.servicioConferencia = servicioConferencia;
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -223,34 +222,16 @@ public class VtnRegistrarArticulo extends javax.swing.JInternalFrame {
 
         Articulo objArticulo = new Articulo(titulo, autores);
         objArticulo.setIdArticulo(1);
+        objArticulo.setEstadoRevision(EstadoRevision.REVISADO);
 
-//        bandera = this.objServicio1.almacenarArticulo(objArticulo);
-//
-//        objArticulo.setEstadoRevision(EstadoRevision.REVISADO);
-//        if (bandera == true) {
-//            Utilidades.mensajeExito("Registro exitoso", "Registro exitoso");
-//            
-//            try {
-//            // Inicializar el EmailSenderPluginManager
-//            String basePath = "src/main/resources/plugins/";// Especifica la ruta donde está tu archivo plugin.properties
-//            EmailSenderPluginManager.init(basePath);
-//
-//            // Obtener el plugin para Hotmail (o el servicio de correo que estés usando)
-//            ISendEmail emailPlugin = EmailSenderPluginManager.getInstance().getEmailPlugin("h");
-//
-//            if (emailPlugin != null) {
-//                emailPlugin.sendEmail("thaliaepe@hotmail.com", "carolt12345","juanpabernal20011@hotmail.com");
-//            } else {
-//                System.out.println("No se encontró el plugin para el servicio de correo especificado.");
-//            }
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//
-//        } else
-//        {
-//            Utilidades.mensajeError("Articulo no almacenado","Error al almacenar el articulo");
-//        }
+        Articulo articuloRegistrado = this.servicioArticulo.registrarArticulo(objArticulo);
+
+        if (articuloRegistrado != null) {
+            Utilidades.mensajeExito("Registro exitoso", "Registro exitoso");
+        } else
+        {
+            Utilidades.mensajeError("Articulo no almacenado","Error al almacenar el articulo");
+        }
     }//GEN-LAST:event_jButtonRegistrarActionPerformed
 
 

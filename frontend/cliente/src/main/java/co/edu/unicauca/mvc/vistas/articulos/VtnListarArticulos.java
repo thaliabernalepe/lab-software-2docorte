@@ -3,6 +3,8 @@ package co.edu.unicauca.mvc.vistas.articulos;
 import co.edu.unicauca.mvc.modelos.Articulo;
 import co.edu.unicauca.mvc.modelos.Revisor;
 import co.edu.unicauca.mvc.utilidades.Utilidades;
+import co.edu.unicauca.services.ArticuloServices;
+import co.edu.unicauca.services.ConferenciaServices;
 import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -10,21 +12,19 @@ import javax.swing.table.DefaultTableModel;
 
 public class VtnListarArticulos extends javax.swing.JInternalFrame {
 
-//    public ServicioAlmacenamientoArticulos objServicio;
-//    public ServicioAlmacenamientoConferencias objServicio2;
-//    public ServicioAlmacenamientoRevisor objServicio3;
+    public ArticuloServices servicioArticulo;
+    public ConferenciaServices servicioConferencia;
+    //public ServicioAlmacenamientoRevisor objServicio3;
 
-//    public VtnListarArticulos(
-//            ServicioAlmacenamientoArticulos objServicio,
-//            ServicioAlmacenamientoConferencias objServicio2,
-//            ServicioAlmacenamientoRevisor objServicio3) {
-//        initComponents();
-//        this.objServicio = objServicio;
-//        this.objServicio2 = objServicio2;
-//        this.objServicio3 = objServicio3;
-//        this.jTableListarArticulos.setDefaultRenderer(Object.class, new Render());
-//        inicializarTabla();
-//    }
+    public VtnListarArticulos(
+            ArticuloServices servicioArticulo,
+            ConferenciaServices servicioConferencia) {
+        initComponents();
+        this.servicioArticulo = servicioArticulo;
+        this.servicioConferencia = servicioConferencia;
+        this.jTableListarArticulos.setDefaultRenderer(Object.class, new Render());
+        inicializarTabla();
+    }
 
     private void inicializarTabla() {
         DefaultTableModel model = new DefaultTableModel();
@@ -51,8 +51,8 @@ public class VtnListarArticulos extends javax.swing.JInternalFrame {
     private void llenarTabla() {
         DefaultTableModel model = (DefaultTableModel) this.jTableListarArticulos.getModel();
         limpiarTabla();
-//        ArrayList<Articulo> listaArticulos
-//                = (ArrayList<Articulo>) this.objServicio.listarArticulos();
+        ArrayList<Articulo> listaArticulos
+                = (ArrayList<Articulo>) this.servicioArticulo.listarArticulos();
 
         JButton JButtonEliminarArticulo = new JButton();
         JButtonEliminarArticulo.setName("Eliminar");
@@ -66,20 +66,20 @@ public class VtnListarArticulos extends javax.swing.JInternalFrame {
         JButtonAsignarRevisor.setName("AsignarRevisor");
         JButtonAsignarRevisor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/assing.png")));
 
-//        for (int i = 0; i < listaArticulos.size(); i++) {
-//            Revisor revisor = listaArticulos.get(i).getRevisor();
-//            String revisorString = (revisor != null) ? revisor.toString() : "No asignado";
-//            Object[] fila = {
-//                listaArticulos.get(i).getIdArticulo(),
-//                listaArticulos.get(i).getTitulo(),
-//                listaArticulos.get(i).getAutores(),
-//                listaArticulos.get(i).getEstadoRevision(),
-//                revisorString,
-//                JButtonEliminarArticulo,
-//                JButtonActualizarArticulo,
-//                JButtonAsignarRevisor};
-//            model.addRow(fila);
-//        }
+        for (int i = 0; i < listaArticulos.size(); i++) {
+            //Revisor revisor = listaArticulos.get(i).getRevisor();
+            //String revisorString = (revisor != null) ? revisor.toString() : "No asignado";
+            Object[] fila = {
+                listaArticulos.get(i).getIdArticulo(),
+                listaArticulos.get(i).getTitulo(),
+                listaArticulos.get(i).getAutores(),
+                listaArticulos.get(i).getEstadoRevision(),
+                //revisorString,
+                JButtonEliminarArticulo,
+                JButtonActualizarArticulo,
+                JButtonAsignarRevisor};
+            model.addRow(fila);
+        }
 
     }
 
@@ -219,9 +219,9 @@ public class VtnListarArticulos extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButtonActalizarActionPerformed
 
     private void jButtonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarActionPerformed
-//        VtnRegistrarArticulo1 objVtnRegistrarArticulo = new VtnRegistrarArticulo1(objServicio, objServicio2);
-//        objVtnRegistrarArticulo.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-//        objVtnRegistrarArticulo.setVisible(true);
+        VtnRegistrarArticulo objVtnRegistrarArticulo = new VtnRegistrarArticulo(servicioArticulo, servicioConferencia);
+        objVtnRegistrarArticulo.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        objVtnRegistrarArticulo.setVisible(true);
     }//GEN-LAST:event_jButtonRegistrarActionPerformed
 
     private void jTableListarArticulosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableListarArticulosMouseClicked
@@ -243,27 +243,27 @@ public class VtnListarArticulos extends javax.swing.JInternalFrame {
                     try {
                         if (Utilidades.mensajeConfirmacion("¿ Estás seguro de que quieres eliminar el artículo con identificador " + idArticulo + " "
                                 + " ?", "Confirmación") == 0) {
-//                            boolean bandera = this.objServicio.eliminarArticulo(idArticuloConvertido);
-//                            if (bandera == true) {
-//                                Utilidades.mensajeExito("El articulo con identificador " + idArticuloConvertido + " fue eliminado exitosamente", "Articulo eliminado");
-//                                llenarTabla();
-//                            } else {
-//                                Utilidades.mensajeAdvertencia("El artículo con identificador " + idArticuloConvertido + " no fue eliminado", "Error al eliminar");
-//
-//                            }
+                            boolean bandera = this.servicioArticulo.eliminarArticulo(idArticuloConvertido);
+                            if (bandera == true) {
+                                Utilidades.mensajeExito("El articulo con identificador " + idArticuloConvertido + " fue eliminado exitosamente", "Articulo eliminado");
+                                llenarTabla();
+                            } else {
+                                Utilidades.mensajeAdvertencia("El artículo con identificador " + idArticuloConvertido + " no fue eliminado", "Error al eliminar");
+
+                            }
                         }
                     } catch (Exception ex) {
                         Utilidades.mensajeError("Error al eliminar usuario. Intentelo de nuevo más tarde", "Error");
                     }
                 } else if (boton.getName().equals("Actualizar")) {
-//                    VtnActualizarArticulo objVtnActualizarArticulo
-//                            = new VtnActualizarArticulo(objServicio, objServicio2);
-//                    objVtnActualizarArticulo.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-//                    objVtnActualizarArticulo.cargarDatos(idArticuloConvertido);
-//                    objVtnActualizarArticulo.setVisible(true);
+                    VtnActualizarArticulo objVtnActualizarArticulo
+                            = new VtnActualizarArticulo(servicioArticulo, servicioConferencia);
+                    objVtnActualizarArticulo.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                    objVtnActualizarArticulo.cargarDatos(idArticuloConvertido);
+                    objVtnActualizarArticulo.setVisible(true);
 
                 } else if (boton.getName().equals("AsignarRevisor")) {
-//                    VtnAsignarRevisor objVtnAsignarRevisor = new VtnAsignarRevisor(objServicio, objServicio3);
+//                    VtnAsignarRevisor objVtnAsignarRevisor = new VtnAsignarRevisor(servicioArticulo, objServicio3);
 //                    objVtnAsignarRevisor.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 //                    objVtnAsignarRevisor.cargarDatos(idArticuloConvertido);
 //                    objVtnAsignarRevisor.setVisible(true);
@@ -275,13 +275,13 @@ public class VtnListarArticulos extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jTableListarArticulosMouseClicked
 
     private void jButtonEvaluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEvaluarActionPerformed
-        // Crear instancia de la ventana de evaluación con el servicio necesario
-//        VtnEvaluarArticulo ventanaEvaluar = new VtnEvaluarArticulo(objServicio);
+        //Crear instancia de la ventana de evaluación con el servicio necesario
+//        VtnEvaluarArticulo ventanaEvaluar = new VtnEvaluarArticulo(servicioArticulo);
 //        ventanaEvaluar.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 //        ventanaEvaluar.setVisible(true);
     }//GEN-LAST:event_jButtonEvaluarActionPerformed
 
-
+ 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonActalizar;
     private javax.swing.JButton jButtonEvaluar;

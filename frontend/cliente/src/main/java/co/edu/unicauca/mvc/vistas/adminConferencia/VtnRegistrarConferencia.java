@@ -2,6 +2,7 @@ package co.edu.unicauca.mvc.vistas.adminConferencia;
 
 import co.edu.unicauca.mvc.modelos.Conferencia;
 import co.edu.unicauca.mvc.utilidades.Utilidades;
+import co.edu.unicauca.services.ConferenciaServices;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -9,12 +10,12 @@ import java.util.Date;
 
 public class VtnRegistrarConferencia extends javax.swing.JFrame {
 
-    //private ServicioAlmacenamientoConferencias objServicioAlmacenamiento;
+    private ConferenciaServices servicioConferencia;
     
-//    public VtnRegistrarConferencia(ServicioAlmacenamientoConferencias objServicioAlmacenamiento) {
-//        initComponents();
-//        this.objServicioAlmacenamiento=objServicioAlmacenamiento;
-//    }
+    public VtnRegistrarConferencia(ConferenciaServices servicioConferencia) {
+        initComponents();
+        this.servicioConferencia = servicioConferencia;
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -177,12 +178,12 @@ public class VtnRegistrarConferencia extends javax.swing.JFrame {
                 Conferencia objConferencia= new Conferencia(nombre, fechaInicioDate, fechaFinDate, costoInscripcion);
 
 
-//                bandera=this.objServicioAlmacenamiento.almacenarConferencia(objConferencia);
-//
-//                if(bandera)
-//                    Utilidades.mensajeExito( "El registro de la conferencia fue exitoso","Registro exitoso");
-//                else
-//                    Utilidades.mensajeError( "El registro de la conferencia no se realizo","Error en el registro");
+                Conferencia conferenciaRegistrada = this.servicioConferencia.registrarConferencia(objConferencia);
+
+                if(conferenciaRegistrada != null)
+                    Utilidades.mensajeExito( "El registro de la conferencia fue exitoso","Registro exitoso");
+                else
+                    Utilidades.mensajeError( "El registro de la conferencia no se realizo","Error en el registro");
 
 
             } catch (ParseException ex) {

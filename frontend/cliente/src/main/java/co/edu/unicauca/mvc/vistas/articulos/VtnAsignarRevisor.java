@@ -187,7 +187,7 @@ public class VtnAsignarRevisor extends javax.swing.JFrame {
         objRevisor = (Revisor) this.jComboBoxRevisores.getSelectedItem();
         
         Articulo objArticulo = new Articulo(titulo, autores);
-        objArticulo.setRevisor(objRevisor);
+        //objArticulo.setRevisor(objRevisor);
 //        bandera = this.objServicio1.asignarRevisorArticulo(idArticulo, objRevisor);
 //        
 //        if (bandera){

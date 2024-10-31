@@ -31,7 +31,7 @@ public class ArticuloRepository {
         ArticuloEntity objArticulo = null;
 
         for(ArticuloEntity articulo : listaArticulos){
-            if(articulo.getId() == id){
+            if(articulo.getIdArticulo() == id){
                 objArticulo = articulo;
                 break;
             }
@@ -50,7 +50,7 @@ public class ArticuloRepository {
         ArticuloEntity objArticulo = null;
 
         for (int i = 0; i < this.listaArticulos.size(); i++){
-            if (this.listaArticulos.get(i).getId() == id){
+            if (this.listaArticulos.get(i).getIdArticulo() == id){
                 this.listaArticulos.set(i, articulo);
                 objArticulo = articulo;
                 break;
@@ -65,7 +65,7 @@ public class ArticuloRepository {
         boolean bandera = false;
 
         for (int i = 0; i < this.listaArticulos.size(); i++){
-            if (this.listaArticulos.get(i).getId() == id){
+            if (this.listaArticulos.get(i).getIdArticulo() == id){
                 this.listaArticulos.remove(i);
                 bandera = true;
                 break;
@@ -81,7 +81,7 @@ public class ArticuloRepository {
         boolean bandera = false;
 
         for (int i = 0; i < this.listaArticulos.size(); i++){
-            if (this.listaArticulos.get(i).getId() == id){
+            if (this.listaArticulos.get(i).getIdArticulo() == id){
                 bandera = true;
                 break;
             }
@@ -91,11 +91,11 @@ public class ArticuloRepository {
 
     private void cargarArticulos()
     {
-        ArticuloEntity objArticulo1 = new ArticuloEntity(1, "IA", "Ana", 1, "Semana");
+        ArticuloEntity objArticulo1 = new ArticuloEntity(1, "IA", "Ana", 1, "PENDIENTE");
         this.listaArticulos.add(objArticulo1);
-        ArticuloEntity objArticulo2 = new ArticuloEntity(2, "Analisis de Datos", "Thalia", 1, "Tiempo");
+        ArticuloEntity objArticulo2 = new ArticuloEntity(2, "Analisis de Datos", "Thalia", 1, "PENDIENTE");
         this.listaArticulos.add(objArticulo2);
-        ArticuloEntity objArticulo3 = new ArticuloEntity(3, "BlockChain", "Maria, Monica", 2, "BBC");
+        ArticuloEntity objArticulo3 = new ArticuloEntity(3, "BlockChain", "Maria, Monica", 2, "PENDIENTE");
         this.listaArticulos.add(objArticulo3);
     }
 }

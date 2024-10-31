@@ -13,6 +13,10 @@ public class Conferencia {
 
     private ArrayList<Articulo> articulosEnviados;
     private ArrayList<Revisor> revisores;
+    
+    public Conferencia(){
+        
+    }
 
     public Conferencia(String nombre, Date fechaInicio, Date fechaFin, float costoInscripcion) {
         this.nombre = nombre;

@@ -8,8 +8,9 @@ import co.edu.unicauca.mvc.modelos.Articulo;
 import co.edu.unicauca.mvc.modelos.Conferencia;
 import co.edu.unicauca.mvc.modelos.EstadoRevision;
 import co.edu.unicauca.mvc.utilidades.Utilidades;
+import co.edu.unicauca.services.ArticuloServices;
+import co.edu.unicauca.services.ConferenciaServices;
 import java.util.ArrayList;
-import java.util.LinkedList;
 
 /**
  *
@@ -17,34 +18,34 @@ import java.util.LinkedList;
  */
 public class VtnActualizarArticulo extends javax.swing.JFrame {
 
-//    private ServicioAlmacenamientoArticulos objServicio1;
-//    private ServicioAlmacenamientoConferencias objServicio2;
-//    
-//    public VtnActualizarArticulo(
-//            ServicioAlmacenamientoArticulos objServicio1,
-//            ServicioAlmacenamientoConferencias objServicio2) {
-//        initComponents();
-//        this.objServicio1=objServicio1;
-//        this.objServicio2=objServicio2;
-//        cargarConferencias();
-//    }
+    private ArticuloServices servicioArticulo;
+    private ConferenciaServices servicioConferencia;
+    
+    public VtnActualizarArticulo(
+            ArticuloServices servicioArticulo,
+            ConferenciaServices servicioConferencia) {
+        initComponents();
+        this.servicioArticulo=servicioArticulo;
+        this.servicioConferencia=servicioConferencia;
+        cargarConferencias();
+    }
     
     public void cargarDatos(int idArticulo)
     {
-//        Articulo objArticulo=this.objServicio1.consultarArticulo(idArticulo);
-//        this.jTextFieldId.setText(objArticulo.getIdArticulo()+"");
-//        this.jTextFieldTitulo.setText(objArticulo.getTitulo());
-//        this.jTextAreaAutores.setText(objArticulo.getAutores());
-//        this.jComboBoxConferencia.setSelectedItem(objArticulo.getObjConferencia());
+        Articulo objArticulo=this.servicioArticulo.consultarArticulo(idArticulo);
+        this.jTextFieldId.setText(objArticulo.getIdArticulo()+"");
+        this.jTextFieldTitulo.setText(objArticulo.getTitulo());
+        this.jTextAreaAutores.setText(objArticulo.getAutores());
+        //this.jComboBoxConferencia.setSelectedItem(objArticulo.getObjConferencia());
     }
     
     public void cargarConferencias()
     {
         
-//        ArrayList<Conferencia> conferencias= (ArrayList<Conferencia>) this.objServicio2.listarConferencias();
-//         for (int i = 0; i < conferencias.size(); i++) {
-//            this.jComboBoxConferencia.addItem(conferencias.get(i));
-//        }
+        ArrayList<Conferencia> conferencias= (ArrayList<Conferencia>) this.servicioConferencia.listarConferencias();
+         for (int i = 0; i < conferencias.size(); i++) {
+            this.jComboBoxConferencia.addItem(conferencias.get(i));
+        }
     }
 
     /**
@@ -224,33 +225,33 @@ public class VtnActualizarArticulo extends javax.swing.JFrame {
         estado = (String) jComboEstadoRevision.getSelectedItem();
 
         // Consultar el artículo existente en lugar de crear uno nuevo
-//        Articulo objArticulo = objServicio1.consultarArticulo(idArticulo);
-//
-//        // Verificar si el artículo existe
-//        if (objArticulo != null) {
-//            // Actualizar los datos del artículo
-//            objArticulo.setTitulo(titulo);
-//            objArticulo.setAutores(autores);
-//            objArticulo.setObjConferencia(objConferencia);
-//
-//            // Intentar cambiar el estado del artículo usando la validación
-//            boolean estadoCambiado = objServicio1.cambiarEstadoArticulo(idArticulo, EstadoRevision.valueOf(estado));
-//
-//            if (estadoCambiado) {
-//                // Si la transición de estado es válida, actualizar el artículo en el sistema
-//                bandera = this.objServicio1.actualizarArticulo(objArticulo);
-//
-//                if (bandera) {
-//                    Utilidades.mensajeExito("Artículo actualizado exitosamente", "Artículo actualizado");
-//                } else {
-//                    Utilidades.mensajeError("Error al actualizar el artículo", "Error al actualizar");
-//                }
-//            } else {
-//                Utilidades.mensajeError("Transición de estado no válida", "Error en el cambio de estado");
-//            }
-//        } else {
-//            Utilidades.mensajeError("No se encontró el artículo con ID: " + idArticulo, "Error");
-//        }
+        Articulo objArticulo = servicioArticulo.consultarArticulo(idArticulo);
+
+        // Verificar si el artículo existe
+        if (objArticulo != null) {
+            // Actualizar los datos del artículo
+            objArticulo.setTitulo(titulo);
+            objArticulo.setAutores(autores);
+            //objArticulo.setObjConferencia(objConferencia);
+
+            // Intentar cambiar el estado del artículo usando la validación
+            //boolean estadoCambiado = servicioArticulo.cambiarEstadoArticulo(idArticulo, EstadoRevision.valueOf(estado));
+
+            //if (estadoCambiado) {
+                // Si la transición de estado es válida, actualizar el artículo en el sistema
+                Articulo articuloActualizado = this.servicioArticulo.actualizarArticulo(objArticulo, idArticulo);
+
+                if (articuloActualizado != null) {
+                    Utilidades.mensajeExito("Artículo actualizado exitosamente", "Artículo actualizado");
+                } else {
+                    Utilidades.mensajeError("Error al actualizar el artículo", "Error al actualizar");
+                }
+            //} else {
+                //Utilidades.mensajeError("Transición de estado no válida", "Error en el cambio de estado");
+            //}
+        }else {
+            Utilidades.mensajeError("No se encontró el artículo con ID: " + idArticulo, "Error");
+        }
 
     } catch (NumberFormatException e) {
         Utilidades.mensajeError("ID de artículo inválido", "Error");

@@ -10,10 +10,11 @@ public class Articulo {
     private int idArticulo;
     private String titulo;
     private String autores;
+    private int cantidadAutores;
     private EstadoRevision estadoRevision;
 
-    private Conferencia objConferencia;
-    private Revisor revisor;
+//    private Conferencia objConferencia;
+//    private Revisor revisor;
 
     private static final EnumMap<EstadoRevision, EnumSet<EstadoRevision>> transicionesValidas = new EnumMap<>(EstadoRevision.class);
 
@@ -22,6 +23,10 @@ public class Articulo {
         transicionesValidas.put(EstadoRevision.EN_REVISION, EnumSet.of(EstadoRevision.REVISADO));
         transicionesValidas.put(EstadoRevision.REVISADO, EnumSet.noneOf(EstadoRevision.class));  // No puede cambiar una vez revisado
     }    
+    
+    public Articulo(){
+        
+    }
     
     public Articulo(String titulo, String autores) {
         this.titulo = titulo;
@@ -57,21 +62,21 @@ public class Articulo {
         this.autores = autores;
     }
 
-    public Conferencia getObjConferencia() {
-        return objConferencia;
-    }
-
-    public void setObjConferencia(Conferencia objConferencia) {
-        this.objConferencia = objConferencia;
-    }
-
-    public Revisor getRevisor() {
-        return revisor;
-    }
-
-    public void setRevisor(Revisor revisor) {
-        this.revisor = revisor;
-    }
+//    public Conferencia getObjConferencia() {
+//        return objConferencia;
+//    }
+//
+//    public void setObjConferencia(Conferencia objConferencia) {
+//        this.objConferencia = objConferencia;
+//    }
+//
+//    public Revisor getRevisor() {
+//        return revisor;
+//    }
+//
+//    public void setRevisor(Revisor revisor) {
+//        this.revisor = revisor;
+//    }
 
     public EstadoRevision getEstadoRevision() {
         return estadoRevision;
@@ -86,5 +91,13 @@ public class Articulo {
             System.out.println("Transición no válida desde " + estadoRevision + " a " + nuevoEstado);
             return false; // No se permite el cambio de estado
         }
+    }
+
+    public int getCantidadAutores() {
+        return cantidadAutores;
+    }
+
+    public void setCantidadAutores(int cantidadAutores) {
+        this.cantidadAutores = cantidadAutores;
     }
 }
