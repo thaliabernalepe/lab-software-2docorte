@@ -219,9 +219,10 @@ public class VtnListarArticulos extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButtonActalizarActionPerformed
 
     private void jButtonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarActionPerformed
-        VtnRegistrarArticulo objVtnRegistrarArticulo = new VtnRegistrarArticulo(servicioArticulo, servicioConferencia);
+        VtnRegistrarArticulo1 objVtnRegistrarArticulo = new VtnRegistrarArticulo1(servicioArticulo, servicioConferencia);
         objVtnRegistrarArticulo.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         objVtnRegistrarArticulo.setVisible(true);
+        System.out.println("Mostrando ventana registrar articulo");
     }//GEN-LAST:event_jButtonRegistrarActionPerformed
 
     private void jTableListarArticulosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableListarArticulosMouseClicked

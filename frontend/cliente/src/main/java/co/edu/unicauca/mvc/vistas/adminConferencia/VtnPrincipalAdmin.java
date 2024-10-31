@@ -1,7 +1,6 @@
 package co.edu.unicauca.mvc.vistas.adminConferencia;
 
 import co.edu.unicauca.mvc.vistas.articulos.VtnListarArticulos;
-import co.edu.unicauca.mvc.vistas.articulos.VtnRegistrarArticulo;
 import co.edu.unicauca.services.ArticuloServices;
 import co.edu.unicauca.services.ConferenciaServices;
 import java.awt.Image;
@@ -11,7 +10,6 @@ import javax.swing.JFrame;
 public class VtnPrincipalAdmin extends javax.swing.JFrame {
     
     private VtnVerEstadisticas objVtnVerEstadisticas;
-    private VtnRegistrarArticulo objVtnRegistrarArticulos;
     private VtnListarConferencias objVtnListarConferencias;
     private VtnListarArticulos objVtnListarArticulos;
     private ArticuloServices servicioArticulo;   
