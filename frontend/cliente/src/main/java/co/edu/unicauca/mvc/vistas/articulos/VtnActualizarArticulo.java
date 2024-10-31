@@ -33,10 +33,12 @@ public class VtnActualizarArticulo extends javax.swing.JFrame {
     public void cargarDatos(int idArticulo)
     {
         Articulo objArticulo=this.servicioArticulo.consultarArticulo(idArticulo);
+        //Conferencia objConferencia = this.servicioConferencia.consultarsiExiste();
         this.jTextFieldId.setText(objArticulo.getIdArticulo()+"");
         this.jTextFieldTitulo.setText(objArticulo.getTitulo());
         this.jTextAreaAutores.setText(objArticulo.getAutores());
-        //this.jComboBoxConferencia.setSelectedItem(objArticulo.getObjConferencia());
+        this.jComboEstadoRevision.setSelectedItem(objArticulo.getEstadoRevision());
+        this.jComboBoxConferencia.setSelectedItem(objArticulo.getIdConferencia());
     }
     
     public void cargarConferencias()
@@ -206,39 +208,34 @@ public class VtnActualizarArticulo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonActualizarActionPerformed
-         String titulo, autores, id, estado;
-    Conferencia objConferencia;
-    boolean bandera;
-    int idArticulo;
+        String titulo, autores, id, estado;
+        Conferencia objConferencia;
+        boolean bandera;
+        int idArticulo;
 
-    try {
-        // Obtener el ID del artículo y convertirlo a entero
-        id = this.jTextFieldId.getText();
-        idArticulo = Integer.parseInt(id);
+        try {
+            // Obtener el ID del artículo y convertirlo a entero
+            id = this.jTextFieldId.getText();
+            idArticulo = Integer.parseInt(id);
 
-        // Obtener el título, autores y conferencia
-        titulo = this.jTextFieldTitulo.getText();
-        autores = this.jTextAreaAutores.getText();
-        objConferencia = (Conferencia) this.jComboBoxConferencia.getSelectedItem();
+            // Obtener el título, autores y conferencia
+            titulo = this.jTextFieldTitulo.getText();
+            autores = this.jTextAreaAutores.getText();
+            objConferencia = (Conferencia) this.jComboBoxConferencia.getSelectedItem();
 
-        // Obtener el estado seleccionado en el JComboBox
-        estado = (String) jComboEstadoRevision.getSelectedItem();
+            // Obtener el estado seleccionado en el JComboBox
+            estado = (String) jComboEstadoRevision.getSelectedItem();
 
-        // Consultar el artículo existente en lugar de crear uno nuevo
-        Articulo objArticulo = servicioArticulo.consultarArticulo(idArticulo);
+            // Consultar el artículo existente en lugar de crear uno nuevo
+            Articulo objArticulo = servicioArticulo.consultarArticulo(idArticulo);
 
-        // Verificar si el artículo existe
-        if (objArticulo != null) {
-            // Actualizar los datos del artículo
-            objArticulo.setTitulo(titulo);
-            objArticulo.setAutores(autores);
-            //objArticulo.setObjConferencia(objConferencia);
-
-            // Intentar cambiar el estado del artículo usando la validación
-            //boolean estadoCambiado = servicioArticulo.cambiarEstadoArticulo(idArticulo, EstadoRevision.valueOf(estado));
-
-            //if (estadoCambiado) {
-                // Si la transición de estado es válida, actualizar el artículo en el sistema
+            // Verificar si el artículo existe
+            if (objArticulo != null) {
+                // Actualizar los datos del artículo
+                objArticulo.setTitulo(titulo);
+                objArticulo.setAutores(autores);
+                objArticulo.setIdConferencia(objConferencia.getIdConferencia());
+                objArticulo.setEstadoRevision(estado);
                 Articulo articuloActualizado = this.servicioArticulo.actualizarArticulo(objArticulo, idArticulo);
 
                 if (articuloActualizado != null) {
@@ -246,18 +243,15 @@ public class VtnActualizarArticulo extends javax.swing.JFrame {
                 } else {
                     Utilidades.mensajeError("Error al actualizar el artículo", "Error al actualizar");
                 }
-            //} else {
-                //Utilidades.mensajeError("Transición de estado no válida", "Error en el cambio de estado");
-            //}
-        }else {
-            Utilidades.mensajeError("No se encontró el artículo con ID: " + idArticulo, "Error");
-        }
+            }else {
+                Utilidades.mensajeError("No se encontró el artículo con ID: " + idArticulo, "Error");
+            }
 
-    } catch (NumberFormatException e) {
-        Utilidades.mensajeError("ID de artículo inválido", "Error");
-    } catch (IllegalArgumentException e) {
-        Utilidades.mensajeError("Estado de revisión inválido: " , "Error");
-    }
+        } catch (NumberFormatException e) {
+            Utilidades.mensajeError("ID de artículo inválido", "Error");
+        } catch (IllegalArgumentException e) {
+            Utilidades.mensajeError("Estado de revisión inválido: " , "Error");
+        }
     }//GEN-LAST:event_jButtonActualizarActionPerformed
 
     

@@ -215,14 +215,13 @@ public class VtnRegistrarArticulo extends javax.swing.JInternalFrame {
     private void jButtonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarActionPerformed
         String titulo, autores;
         Conferencia objConferencia;
-        boolean bandera;
 
         titulo = this.jTextFieldTitulo.getText();
         autores = this.jTextAreaAutores.getText();
+        objConferencia = (Conferencia) this.jComboBoxConferncias.getSelectedItem();
 
         Articulo objArticulo = new Articulo(titulo, autores);
-        objArticulo.setIdArticulo(1);
-        objArticulo.setEstadoRevision(EstadoRevision.REVISADO);
+        objArticulo.setIdConferencia(objConferencia.getIdConferencia());
 
         Articulo articuloRegistrado = this.servicioArticulo.registrarArticulo(objArticulo);
 

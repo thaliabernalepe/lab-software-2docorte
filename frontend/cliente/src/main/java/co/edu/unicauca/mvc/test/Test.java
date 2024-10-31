@@ -2,7 +2,6 @@ package co.edu.unicauca.mvc.test;
 
 import co.edu.unicauca.mvc.modelos.Articulo;
 import co.edu.unicauca.mvc.modelos.Revisor;
-import co.edu.unicauca.mvc.modelos.EstadoRevision;
 import co.edu.unicauca.mvc.vistas.adminConferencia.VtnPrincipalAdmin;
 import co.edu.unicauca.mvc.vistas.asistente.VtnPrincipalAsistente;
 import co.edu.unicauca.mvc.vistas.autorPublicacion.VtnPrincipalAutor;
@@ -14,7 +13,6 @@ import javax.swing.UIManager;
 
 public class Test {
 
-    
     public static void main(String[] args) {
         
         
@@ -27,12 +25,6 @@ public class Test {
         Revisor revisor2 = new Revisor(2,"Revisor 2","b 2");
 //        objServicio2.addObserver(revisor1);
 //        objServicio2.addObserver(revisor2);
-        Articulo articulo1 = new Articulo("Artículo 1", "w");
-        Articulo articulo2 = new Articulo("Artículo 2", "s");
-        servicioArticulo.registrarArticulo(articulo1);
-        servicioArticulo.registrarArticulo(articulo2);
-//        servicioArticulo.cambiarEstadoArticulo(1, EstadoRevision.EN_REVISION);
-//        servicioArticulo.cambiarEstadoArticulo(2, EstadoRevision.EN_REVISION);
         
         VtnPrincipalAsistente objVtnAsistente=new VtnPrincipalAsistente();
         VtnPrincipalAutor objVtnAutor= new VtnPrincipalAutor();

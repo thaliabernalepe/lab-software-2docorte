@@ -1,5 +1,6 @@
 package co.edu.unicauca.swii.proyecto_api_rest_articulo.fachadaServices.DTO;
 
+import co.edu.unicauca.swii.proyecto_api_rest_articulo.capaAccesoADatos.models.EstadoRevision;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
@@ -12,7 +13,7 @@ public class ArticuloDTO {
     private String titulo;
     private String autores;
     private Integer cantidadAutores;
-    private String estadoRevision;
+    private EstadoRevision estadoRevision;
     private Integer idConferencia;
 
     public ArticuloDTO() {

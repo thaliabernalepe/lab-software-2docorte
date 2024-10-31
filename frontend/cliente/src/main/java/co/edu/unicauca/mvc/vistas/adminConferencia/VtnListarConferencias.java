@@ -24,6 +24,8 @@ public class VtnListarConferencias extends javax.swing.JInternalFrame {
        model.addColumn("Fecha de inicio");
        model.addColumn("Fecha de fin");
        model.addColumn("Costo");
+       model.addColumn("Límite Articulos");
+       model.addColumn("Articulos enviados");
        this.jTableListadoConferencias.setModel(model);
     }
     
@@ -44,7 +46,12 @@ public class VtnListarConferencias extends javax.swing.JInternalFrame {
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
        
         for (int i = 0; i < listaConferencias.size(); i++) {
-            String [] fila= { listaConferencias.get(i).getNombre(), formatter.format(listaConferencias.get(i).getFechaInicio()),formatter.format(listaConferencias.get(i).getFechaFin()),listaConferencias.get(i).getCostoInscripcion()+""};
+            String [] fila= { listaConferencias.get(i).getNombre(), 
+                formatter.format(listaConferencias.get(i).getFechaInicio()),
+                formatter.format(listaConferencias.get(i).getFechaFin()),
+                listaConferencias.get(i).getCostoInscripcion()+"",
+                listaConferencias.get(i).getCantMaxArticulos()+"",
+                servicioConferencia.cantidadArticulosEnviados(listaConferencias.get(i).getIdConferencia())+""};
             model.addRow(fila);
         }
     }

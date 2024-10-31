@@ -11,7 +11,7 @@ public class Articulo {
     private String titulo;
     private String autores;
     private int cantidadAutores;
-    private EstadoRevision estadoRevision;
+    private String estadoRevision;
     private int idConferencia;
 
 //    private Conferencia objConferencia;
@@ -32,10 +32,9 @@ public class Articulo {
     public Articulo(String titulo, String autores) {
         this.titulo = titulo;
         this.autores = autores;
-        this.estadoRevision = EstadoRevision.PENDIENTE; // Estado inicial
     }
 
-    public void setEstadoRevision(EstadoRevision estadoRevision) {
+    public void setEstadoRevision(String estadoRevision) {
         this.estadoRevision = estadoRevision;
     }
 
@@ -81,20 +80,20 @@ public class Articulo {
 //        this.revisor = revisor;
 //    }
 
-    public EstadoRevision getEstadoRevision() {
+    public String getEstadoRevision() {
         return estadoRevision;
     }
     
-    public boolean cambiarEstado(EstadoRevision nuevoEstado) {
-        // Verificar si la transición es válida
-        if (transicionesValidas.get(estadoRevision).contains(nuevoEstado)) {
-            setEstadoRevision(nuevoEstado);
-            return true; // Cambio de estado exitoso
-        } else {
-            System.out.println("Transición no válida desde " + estadoRevision + " a " + nuevoEstado);
-            return false; // No se permite el cambio de estado
-        }
-    }
+//    public boolean cambiarEstado(EstadoRevision nuevoEstado) {
+//        // Verificar si la transición es válida
+//        if (transicionesValidas.get(estadoRevision).contains(nuevoEstado)) {
+//            setEstadoRevision(nuevoEstado);
+//            return true; // Cambio de estado exitoso
+//        } else {
+//            System.out.println("Transición no válida desde " + estadoRevision + " a " + nuevoEstado);
+//            return false; // No se permite el cambio de estado
+//        }
+//    }
 
     public int getCantidadAutores() {
         return cantidadAutores;

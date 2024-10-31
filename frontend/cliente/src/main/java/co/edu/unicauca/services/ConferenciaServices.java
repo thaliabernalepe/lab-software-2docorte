@@ -38,7 +38,7 @@ public class ConferenciaServices {
     public List<Conferencia> listarConferencias() {
         List<Conferencia> listaConferencias = null;
         WebTarget target = this.client.target(this.endPoint);
-        Invocation.Builder objPeticion = target.request(MediaType.APPLICATION_JSON);
+        Invocation.Builder objPeticion = target.request(MediaType.APPLICATION_JSON_TYPE);
         listaConferencias = objPeticion.get(new GenericType<List<Conferencia>>() {});
         return listaConferencias;
     }
@@ -52,6 +52,12 @@ public class ConferenciaServices {
         return bandera;
     }
 
- // Metodo cantidad articulos enviados
-    
+    // Metodo cantidad articulos enviados
+    public int cantidadArticulosEnviados(Integer id) {
+        int cantidad;
+        WebTarget target = client.target(this.endPoint+"/articulos?idConferencia="+id);
+        Invocation.Builder objPeticion = target.request(MediaType.APPLICATION_JSON_TYPE);
+        cantidad = objPeticion.get(Integer.class);
+        return cantidad;
+    }
 }
