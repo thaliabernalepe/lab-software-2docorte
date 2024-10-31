@@ -13,6 +13,7 @@ public class ArticuloDTO {
     private String autores;
     private Integer cantidadAutores;
     private String estadoRevision;
+    private Integer idConferencia;
 
     public ArticuloDTO() {
         

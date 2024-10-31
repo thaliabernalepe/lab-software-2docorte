@@ -11,6 +11,7 @@ import co.edu.unicauca.mvc.modelos.EstadoRevision;
 import co.edu.unicauca.mvc.utilidades.Utilidades;
 import co.edu.unicauca.services.ArticuloServices;
 import co.edu.unicauca.services.ConferenciaServices;
+import java.util.ArrayList;
 
 /**
  *
@@ -27,6 +28,15 @@ public class VtnRegistrarArticulo1 extends javax.swing.JFrame {
         initComponents();
         this.servicioArticulo = servicioArticulo;
         this.servicioConferencia = servicioConferencia;
+        cargarConferencias();
+    }
+    
+    public void cargarConferencias()
+    {
+        ArrayList<Conferencia> conferencias= (ArrayList<Conferencia>) this.servicioConferencia.listarConferencias();
+         for (int i = 0; i < conferencias.size(); i++) {
+            this.jComboBoxConferncias.addItem(conferencias.get(i));
+        }
     }
 
     /**
@@ -47,11 +57,11 @@ public class VtnRegistrarArticulo1 extends javax.swing.JFrame {
         jLabelResumen = new javax.swing.JLabel();
         jTextFieldTitulo1 = new javax.swing.JTextField();
         jTextAreaAutores = new javax.swing.JTextField();
-        jTextFieldTitulo2 = new javax.swing.JTextField();
+        jTextFieldCantidadAutores = new javax.swing.JTextField();
         jComboBoxTipo = new javax.swing.JComboBox<>();
         jComboBoxFormato = new javax.swing.JComboBox<>();
         jTextFieldTitulo = new javax.swing.JTextField();
-        jLabelResumenInstitucion = new javax.swing.JLabel();
+        jLabelCantidadAutores = new javax.swing.JLabel();
         jLabelResumenFormato = new javax.swing.JLabel();
         jLabelTipo = new javax.swing.JLabel();
         jButtonRegistrar = new javax.swing.JButton();
@@ -115,8 +125,8 @@ public class VtnRegistrarArticulo1 extends javax.swing.JFrame {
 
         jComboBoxFormato.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "PDF", "DOCX", "LaTeX", "RTF", "ODT", "HTML", "TXT" }));
 
-        jLabelResumenInstitucion.setFont(new java.awt.Font("Gloucester MT Extra Condensed", 0, 14)); // NOI18N
-        jLabelResumenInstitucion.setText("Institución: ");
+        jLabelCantidadAutores.setFont(new java.awt.Font("Gloucester MT Extra Condensed", 0, 14)); // NOI18N
+        jLabelCantidadAutores.setText("Cantidad Autores: ");
 
         jLabelResumenFormato.setFont(new java.awt.Font("Gloucester MT Extra Condensed", 0, 14)); // NOI18N
         jLabelResumenFormato.setText("Formato: ");
@@ -145,13 +155,7 @@ public class VtnRegistrarArticulo1 extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
                         .addComponent(jTextFieldTitulo1, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 90, Short.MAX_VALUE)
-                                .addComponent(jLabelResumenInstitucion)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextFieldTitulo2, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(22, 22, 22))
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addGap(59, 59, 59)
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -159,11 +163,17 @@ public class VtnRegistrarArticulo1 extends javax.swing.JFrame {
                                         .addComponent(jLabelResumenFormato)
                                         .addGap(18, 18, 18)
                                         .addComponent(jComboBoxFormato, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, Short.MAX_VALUE))
+                                        .addGap(0, 49, Short.MAX_VALUE))
                                     .addGroup(jPanel3Layout.createSequentialGroup()
                                         .addComponent(jLabelconferenciaAsociada)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jComboBoxConferncias, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
+                                        .addComponent(jComboBoxConferncias, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(50, 50, 50)
+                                .addComponent(jLabelCantidadAutores)
+                                .addGap(18, 18, 18)
+                                .addComponent(jTextFieldCantidadAutores, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -209,8 +219,8 @@ public class VtnRegistrarArticulo1 extends javax.swing.JFrame {
                                     .addComponent(jLabelResumenFormato))
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabelResumenInstitucion)
-                                    .addComponent(jTextFieldTitulo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(jLabelCantidadAutores)
+                                    .addComponent(jTextFieldCantidadAutores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addGap(35, 35, 35)
@@ -237,14 +247,18 @@ public class VtnRegistrarArticulo1 extends javax.swing.JFrame {
     private void jButtonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarActionPerformed
         String titulo, autores;
         Conferencia objConferencia;
+        int cantidadAutores;
         boolean bandera;
 
         titulo = this.jTextFieldTitulo.getText();
         autores = this.jTextAreaAutores.getText();
+        objConferencia = (Conferencia) this.jComboBoxConferncias.getSelectedItem();
+        cantidadAutores = Integer.parseInt(this.jTextFieldCantidadAutores.getText());
 
         Articulo objArticulo = new Articulo(titulo, autores);
         objArticulo.setIdArticulo(1);
-        objArticulo.setEstadoRevision(EstadoRevision.REVISADO);
+        objArticulo.setIdConferencia(objConferencia.getIdConferencia());
+        objArticulo.setCantidadAutores(cantidadAutores);
 
         Articulo articuloRegistrado = this.servicioArticulo.registrarArticulo(objArticulo);
 
@@ -258,14 +272,14 @@ public class VtnRegistrarArticulo1 extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonRegistrar;
-    private javax.swing.JComboBox<String> jComboBoxConferncias;
+    private javax.swing.JComboBox<Conferencia> jComboBoxConferncias;
     private javax.swing.JComboBox<String> jComboBoxFormato;
     private javax.swing.JComboBox<String> jComboBoxTipo;
     private javax.swing.JLabel jLabelAutores;
+    private javax.swing.JLabel jLabelCantidadAutores;
     private javax.swing.JLabel jLabelEncabezado;
     private javax.swing.JLabel jLabelResumen;
     private javax.swing.JLabel jLabelResumenFormato;
-    private javax.swing.JLabel jLabelResumenInstitucion;
     private javax.swing.JLabel jLabelTipo;
     private javax.swing.JLabel jLabelTitulo;
     private javax.swing.JLabel jLabelconferenciaAsociada;
@@ -273,8 +287,8 @@ public class VtnRegistrarArticulo1 extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JTextField jTextAreaAutores;
+    private javax.swing.JTextField jTextFieldCantidadAutores;
     private javax.swing.JTextField jTextFieldTitulo;
     private javax.swing.JTextField jTextFieldTitulo1;
-    private javax.swing.JTextField jTextFieldTitulo2;
     // End of variables declaration//GEN-END:variables
 }

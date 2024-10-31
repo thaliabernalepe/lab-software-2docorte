@@ -13,6 +13,7 @@ public class ArticuloEntity {
     private String autores;
     private Integer cantidadAutores;
     private String estadoRevision;
+    private Integer idConferencia;
 
     public ArticuloEntity() {
         

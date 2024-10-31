@@ -8,11 +8,12 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 public class ArticuloDTO {
-    private Integer id;
-    private String nombre;
+    private Integer idArticulo;
+    private String titulo;
     private String autores;
     private Integer cantidadAutores;
-    private String revista;
+    private String estadoRevision;
+    private Integer idConferencia;
 
     public ArticuloDTO() {
         

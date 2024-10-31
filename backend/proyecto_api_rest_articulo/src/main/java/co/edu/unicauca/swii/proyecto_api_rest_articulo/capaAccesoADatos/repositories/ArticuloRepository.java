@@ -91,11 +91,11 @@ public class ArticuloRepository {
 
     private void cargarArticulos()
     {
-        ArticuloEntity objArticulo1 = new ArticuloEntity(1, "IA", "Ana", 1, "PENDIENTE");
+        ArticuloEntity objArticulo1 = new ArticuloEntity(1, "IA", "Ana", 1, "PENDIENTE", 1);
         this.listaArticulos.add(objArticulo1);
-        ArticuloEntity objArticulo2 = new ArticuloEntity(2, "Analisis de Datos", "Thalia", 1, "PENDIENTE");
+        ArticuloEntity objArticulo2 = new ArticuloEntity(2, "Analisis de Datos", "Thalia", 1, "PENDIENTE", 1);
         this.listaArticulos.add(objArticulo2);
-        ArticuloEntity objArticulo3 = new ArticuloEntity(3, "BlockChain", "Maria, Monica", 2, "PENDIENTE");
+        ArticuloEntity objArticulo3 = new ArticuloEntity(3, "BlockChain", "Maria, Monica", 2, "PENDIENTE", 2);
         this.listaArticulos.add(objArticulo3);
     }
 }

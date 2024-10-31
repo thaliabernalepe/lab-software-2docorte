@@ -13,8 +13,8 @@ public class MessageConsumer {
     public void receiveMessage(ArticuloConConferenciasDTO objArticuloCreado) {
         System.out.println("Datos del articulo recibidos:");
         System.out.println("Enviando correo electrónico");
-        System.out.println("Id: " + objArticuloCreado.getObjArticuloDTO().getId());
-        System.out.println("Titulo: " + objArticuloCreado.getObjArticuloDTO().getNombre());
+        System.out.println("Id: " + objArticuloCreado.getObjArticuloDTO().getIdArticulo());
+        System.out.println("Titulo: " + objArticuloCreado.getObjArticuloDTO().getTitulo());
         System.out.println("Autores: " + objArticuloCreado.getObjArticuloDTO().getAutores());
         System.out.println("Conferencias asociadas: " + objArticuloCreado.getListaConferencias());
     }

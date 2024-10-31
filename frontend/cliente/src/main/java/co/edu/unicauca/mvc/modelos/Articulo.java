@@ -12,6 +12,7 @@ public class Articulo {
     private String autores;
     private int cantidadAutores;
     private EstadoRevision estadoRevision;
+    private int idConferencia;
 
 //    private Conferencia objConferencia;
 //    private Revisor revisor;
@@ -61,6 +62,8 @@ public class Articulo {
     public void setAutores(String autores) {
         this.autores = autores;
     }
+    
+    
 
 //    public Conferencia getObjConferencia() {
 //        return objConferencia;
@@ -99,5 +102,13 @@ public class Articulo {
 
     public void setCantidadAutores(int cantidadAutores) {
         this.cantidadAutores = cantidadAutores;
+    }
+
+    public int getIdConferencia() {
+        return idConferencia;
+    }
+
+    public void setIdConferencia(int idConferencia) {
+        this.idConferencia = idConferencia;
     }
 }

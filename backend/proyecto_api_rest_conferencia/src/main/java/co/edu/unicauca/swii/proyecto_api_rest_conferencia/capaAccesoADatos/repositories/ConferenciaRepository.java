@@ -1,6 +1,7 @@
 package co.edu.unicauca.swii.proyecto_api_rest_conferencia.capaAccesoADatos.repositories;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.stereotype.Repository;
@@ -91,11 +92,11 @@ public class ConferenciaRepository {
         objArticulo3.setIdArticulo(1);
         listaArticulosConferencia3.add(objArticulo3);
 
-        ConferenciaEntity objConferencia1 = new ConferenciaEntity(1, "IA", 10, listaArticulosConferencia1);
+        ConferenciaEntity objConferencia1 = new ConferenciaEntity(1, "IA", new Date(2024, 10, 1), new Date(2024, 10, 5), 100.0f, 10, listaArticulosConferencia1);
         this.listaConferencias.add(objConferencia1);
-        ConferenciaEntity objConferencia2 = new ConferenciaEntity(2, "Analisis de Datos", 20, listaArticulosConferencia2);
+        ConferenciaEntity objConferencia2 = new ConferenciaEntity(2, "Análisis de Datos", new Date(2024, 11, 10), new Date(2024, 11, 15), 150.0f, 20, listaArticulosConferencia2);
         this.listaConferencias.add(objConferencia2);
-        ConferenciaEntity objConferencia3 = new ConferenciaEntity(3, "CiberSeguridad", 30, listaArticulosConferencia3);
+        ConferenciaEntity objConferencia3 = new ConferenciaEntity(3, "CiberSeguridad", new Date(2024, 12, 20), new Date(2024, 12, 25), 200.0f, 30, listaArticulosConferencia3);
         this.listaConferencias.add(objConferencia3);
     }
 }
