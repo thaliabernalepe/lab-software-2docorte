@@ -16,6 +16,6 @@ public class MessageConsumer {
         System.out.println("Id: " + objArticuloCreado.getObjArticuloDTO().getIdArticulo());
         System.out.println("Titulo: " + objArticuloCreado.getObjArticuloDTO().getTitulo());
         System.out.println("Autores: " + objArticuloCreado.getObjArticuloDTO().getAutores());
-        System.out.println("Conferencias asociadas: " + objArticuloCreado.getListaConferencias());
+       // System.out.println("Conferencias asociadas: " + objArticuloCreado.getListaConferencias());
     }
 }
