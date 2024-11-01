@@ -86,6 +86,7 @@ public class VtnListarArticulos extends javax.swing.JInternalFrame {
                 JButtonActualizarArticulo};
                 //JButtonAsignarRevisor};
             model.addRow(fila);
+            System.out.println(conferencia.getNombre()+", "+conferencia.getIdConferencia());
         }
         
         jTableListarArticulos.getColumnModel().getColumn(4).setMinWidth(0);
@@ -118,7 +119,7 @@ public class VtnListarArticulos extends javax.swing.JInternalFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(206, 206, 206)
                 .addComponent(jLabel1)
-                .addContainerGap(220, Short.MAX_VALUE))
+                .addContainerGap(279, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -137,7 +138,7 @@ public class VtnListarArticulos extends javax.swing.JInternalFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 586, Short.MAX_VALUE)
+            .addGap(0, 645, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -188,12 +189,12 @@ public class VtnListarArticulos extends javax.swing.JInternalFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(59, 59, 59)
                 .addComponent(jButtonActalizar)
-                .addGap(299, 299, 299)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButtonRegistrar)
-                .addContainerGap(70, Short.MAX_VALUE))
+                .addGap(93, 93, 93))
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 633, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -204,8 +205,8 @@ public class VtnListarArticulos extends javax.swing.JInternalFrame {
                     .addComponent(jButtonActalizar)
                     .addComponent(jButtonRegistrar))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(45, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel3, java.awt.BorderLayout.CENTER);
@@ -240,7 +241,7 @@ public class VtnListarArticulos extends javax.swing.JInternalFrame {
                 int idArticuloConvertido = Integer.parseInt(idArticulo);
                 String idConferencia = jTableListarArticulos.getValueAt(row, 4).toString();
                 int idConferenciaConvertido = Integer.parseInt(idConferencia);
-                
+                System.out.println(idConferenciaConvertido);
                 if (boton.getName().equals("Eliminar")) {
                     try {
                         if (Utilidades.mensajeConfirmacion("¿ Estás seguro de que quieres eliminar el artículo con identificador " + idArticulo + " "

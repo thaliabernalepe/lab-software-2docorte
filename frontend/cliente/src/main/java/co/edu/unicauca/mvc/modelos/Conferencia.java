@@ -19,11 +19,12 @@ public class Conferencia {
         
     }
 
-    public Conferencia(String nombre, Date fechaInicio, Date fechaFin, float costoInscripcion) {
+    public Conferencia(String nombre, Date fechaInicio, Date fechaFin, float costoInscripcion, int cantMaxArticulos) {
         this.nombre = nombre;
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
         this.costoInscripcion = costoInscripcion;
+        this.cantMaxArticulos = cantMaxArticulos;
         this.articulosEnviados = new ArrayList<>();
         this.revisores = new ArrayList<>();
     }

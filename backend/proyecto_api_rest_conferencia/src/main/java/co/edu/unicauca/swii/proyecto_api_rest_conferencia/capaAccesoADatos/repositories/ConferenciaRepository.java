@@ -22,6 +22,7 @@ public class ConferenciaRepository {
     public ConferenciaEntity save(ConferenciaEntity conferencia) {
         System.out.println("Invocando a guardar una conferencia");
         ConferenciaEntity objConferencia = null;
+        conferencia.setIdConferencia(listaConferencias.size() + 1);
         if(this.listaConferencias.add(conferencia)){
             objConferencia = conferencia;
         }
@@ -63,11 +64,10 @@ public class ConferenciaRepository {
     public Integer cantidadArticulosConferencia(Integer idConferencia){
         System.out.println("Invocando a consultar cantidad de articulos enviados a una conferencia");
         Integer cantidad = 0;
-        for (int i = 0; i < this.listaConferencias.size(); i++){
-            ConferenciaEntity objConferencia = this.listaConferencias.get(i);
-            if(objConferencia.getIdConferencia().equals(idConferencia)){
+        for (ConferenciaEntity objConferencia : this.listaConferencias) {
+            if (objConferencia.getIdConferencia().equals(idConferencia)) {
                 List<ArticuloEntity> listaArticulos = objConferencia.getListaArticulos();
-                cantidad = listaArticulos.size();
+                cantidad = listaArticulos != null ? listaArticulos.size() : 0;
                 return cantidad;
             }
         }

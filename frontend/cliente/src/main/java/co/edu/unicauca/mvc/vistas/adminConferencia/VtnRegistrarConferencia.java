@@ -39,6 +39,8 @@ public class VtnRegistrarConferencia extends javax.swing.JFrame {
         jTextFieldFechaInicio = new javax.swing.JTextField();
         jTextFieldFechaFin = new javax.swing.JTextField();
         jTextFieldCosto = new javax.swing.JTextField();
+        jLabelCantMaxArticulos = new javax.swing.JLabel();
+        jTextFieldCantMaxArticulos = new javax.swing.JTextField();
 
         jPanelSuperior.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -100,34 +102,37 @@ public class VtnRegistrarConferencia extends javax.swing.JFrame {
             }
         });
 
+        jLabelCantMaxArticulos.setText("Cantidad Maxima de Articulos:");
+
         javax.swing.GroupLayout jPanelCentralLayout = new javax.swing.GroupLayout(jPanelCentral);
         jPanelCentral.setLayout(jPanelCentralLayout);
         jPanelCentralLayout.setHorizontalGroup(
             jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelCentralLayout.createSequentialGroup()
-                .addGap(110, 110, 110)
-                .addGroup(jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabelCosto)
-                    .addComponent(jLabelFechaFin)
-                    .addComponent(jLabelFechaInicio)
-                    .addComponent(jLabelNombre))
-                .addGap(70, 70, 70)
-                .addGroup(jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jTextFieldNombre)
-                        .addComponent(jTextFieldFechaInicio)
-                        .addComponent(jTextFieldCosto, javax.swing.GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE))
-                    .addComponent(jTextFieldFechaFin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(163, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelCentralLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButtonRegistrar)
                 .addGap(31, 31, 31))
+            .addGroup(jPanelCentralLayout.createSequentialGroup()
+                .addGap(45, 45, 45)
+                .addGroup(jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabelFechaFin)
+                    .addComponent(jLabelFechaInicio)
+                    .addComponent(jLabelNombre)
+                    .addComponent(jLabelCantMaxArticulos)
+                    .addComponent(jLabelCosto))
+                .addGap(70, 70, 70)
+                .addGroup(jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jTextFieldCantMaxArticulos)
+                    .addComponent(jTextFieldNombre)
+                    .addComponent(jTextFieldFechaInicio)
+                    .addComponent(jTextFieldFechaFin)
+                    .addComponent(jTextFieldCosto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(143, Short.MAX_VALUE))
         );
         jPanelCentralLayout.setVerticalGroup(
             jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelCentralLayout.createSequentialGroup()
-                .addGap(33, 33, 33)
+                .addGap(39, 39, 39)
                 .addGroup(jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabelNombre)
                     .addComponent(jTextFieldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -139,11 +144,15 @@ public class VtnRegistrarConferencia extends javax.swing.JFrame {
                 .addGroup(jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelFechaFin)
                     .addComponent(jTextFieldFechaFin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20)
+                .addGap(18, 18, 18)
                 .addGroup(jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelCosto)
-                    .addComponent(jTextFieldCosto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
+                    .addComponent(jLabelCantMaxArticulos)
+                    .addComponent(jTextFieldCantMaxArticulos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
+                .addGroup(jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextFieldCosto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelCosto))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButtonRegistrar)
                 .addGap(25, 25, 25))
         );
@@ -158,12 +167,14 @@ public class VtnRegistrarConferencia extends javax.swing.JFrame {
         String nombre, fechaInicio, fechaFin, costo;
         Date fechaInicioDate = null, fechaFinDate = null;
         float costoInscripcion;
+        int cantMaxArticulos;
         boolean bandera;
         
         nombre=this.jTextFieldNombre.getText();
         fechaInicio=this.jTextFieldFechaInicio.getText();
         fechaFin=this.jTextFieldFechaFin.getText();
         costo=this.jTextFieldCosto.getText();
+        cantMaxArticulos = Integer.parseInt(this.jTextFieldCantMaxArticulos.getText());
         
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
         try {
@@ -175,7 +186,7 @@ public class VtnRegistrarConferencia extends javax.swing.JFrame {
                 
                 costoInscripcion=Float.parseFloat(costo);
         
-                Conferencia objConferencia= new Conferencia(nombre, fechaInicioDate, fechaFinDate, costoInscripcion);
+                Conferencia objConferencia= new Conferencia(nombre, fechaInicioDate, fechaFinDate, costoInscripcion, cantMaxArticulos);
 
 
                 Conferencia conferenciaRegistrada = this.servicioConferencia.registrarConferencia(objConferencia);
@@ -203,6 +214,7 @@ public class VtnRegistrarConferencia extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonRegistrar;
+    private javax.swing.JLabel jLabelCantMaxArticulos;
     private javax.swing.JLabel jLabelCosto;
     private javax.swing.JLabel jLabelFechaFin;
     private javax.swing.JLabel jLabelFechaInicio;
@@ -211,6 +223,7 @@ public class VtnRegistrarConferencia extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelCentral;
     private javax.swing.JPanel jPanelInferior;
     private javax.swing.JPanel jPanelSuperior;
+    private javax.swing.JTextField jTextFieldCantMaxArticulos;
     private javax.swing.JTextField jTextFieldCosto;
     private javax.swing.JTextField jTextFieldFechaFin;
     private javax.swing.JTextField jTextFieldFechaInicio;
