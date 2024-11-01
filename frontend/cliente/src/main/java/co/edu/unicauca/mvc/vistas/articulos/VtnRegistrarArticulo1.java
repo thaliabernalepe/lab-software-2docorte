@@ -55,8 +55,8 @@ public class VtnRegistrarArticulo1 extends javax.swing.JFrame {
         jLabelTitulo = new javax.swing.JLabel();
         jLabelAutores = new javax.swing.JLabel();
         jLabelResumen = new javax.swing.JLabel();
-        jTextFieldTitulo1 = new javax.swing.JTextField();
-        jTextAreaAutores = new javax.swing.JTextField();
+        jTextFieldAutores = new javax.swing.JTextField();
+        jTextAreaResumen = new javax.swing.JTextField();
         jTextFieldCantidadAutores = new javax.swing.JTextField();
         jComboBoxTipo = new javax.swing.JComboBox<>();
         jComboBoxFormato = new javax.swing.JComboBox<>();
@@ -154,7 +154,7 @@ public class VtnRegistrarArticulo1 extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
-                        .addComponent(jTextFieldTitulo1, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextFieldAutores, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addGap(59, 59, 59)
@@ -172,8 +172,7 @@ public class VtnRegistrarArticulo1 extends javax.swing.JFrame {
                                 .addGap(50, 50, 50)
                                 .addComponent(jLabelCantidadAutores)
                                 .addGap(18, 18, 18)
-                                .addComponent(jTextFieldCantidadAutores, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                .addComponent(jTextFieldCantidadAutores, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -195,7 +194,7 @@ public class VtnRegistrarArticulo1 extends javax.swing.JFrame {
                         .addGap(30, 30, 30)
                         .addComponent(jLabelResumen)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextAreaAutores, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jTextAreaResumen, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -233,9 +232,9 @@ public class VtnRegistrarArticulo1 extends javax.swing.JFrame {
                                 .addGap(35, 35, 35)
                                 .addComponent(jButtonRegistrar))))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jTextFieldTitulo1, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextFieldAutores, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextAreaAutores, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jTextAreaResumen, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -251,7 +250,7 @@ public class VtnRegistrarArticulo1 extends javax.swing.JFrame {
         boolean bandera;
 
         titulo = this.jTextFieldTitulo.getText();
-        autores = this.jTextAreaAutores.getText();
+        autores = this.jTextFieldAutores.getText();
         objConferencia = (Conferencia) this.jComboBoxConferncias.getSelectedItem();
         cantidadAutores = Integer.parseInt(this.jTextFieldCantidadAutores.getText());
 
@@ -286,9 +285,9 @@ public class VtnRegistrarArticulo1 extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JTextField jTextAreaAutores;
+    private javax.swing.JTextField jTextAreaResumen;
+    private javax.swing.JTextField jTextFieldAutores;
     private javax.swing.JTextField jTextFieldCantidadAutores;
     private javax.swing.JTextField jTextFieldTitulo;
-    private javax.swing.JTextField jTextFieldTitulo1;
     // End of variables declaration//GEN-END:variables
 }

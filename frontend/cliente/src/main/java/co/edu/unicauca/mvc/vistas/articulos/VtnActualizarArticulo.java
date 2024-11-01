@@ -30,15 +30,15 @@ public class VtnActualizarArticulo extends javax.swing.JFrame {
         cargarConferencias();
     }
     
-    public void cargarDatos(int idArticulo)
+    public void cargarDatos(int idArticulo, int idConferencia)
     {
         Articulo objArticulo=this.servicioArticulo.consultarArticulo(idArticulo);
-        //Conferencia objConferencia = this.servicioConferencia.consultarsiExiste();
+        Conferencia objConferencia = this.servicioConferencia.consultarConferencia(idConferencia);
         this.jTextFieldId.setText(objArticulo.getIdArticulo()+"");
         this.jTextFieldTitulo.setText(objArticulo.getTitulo());
         this.jTextAreaAutores.setText(objArticulo.getAutores());
         this.jComboEstadoRevision.setSelectedItem(objArticulo.getEstadoRevision());
-        this.jComboBoxConferencia.setSelectedItem(objArticulo.getIdConferencia());
+        this.jComboBoxConferencia.setSelectedItem(objConferencia);
     }
     
     public void cargarConferencias()

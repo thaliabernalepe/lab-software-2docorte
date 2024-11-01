@@ -51,6 +51,13 @@ public class ConferenciaServices {
         bandera = objPeticion.get(Boolean.class);
         return bandera;
     }
+    
+    // Método para consultar un artículo específico por ID
+    public Conferencia consultarConferencia(Integer id) {
+        WebTarget target = client.target(this.endPoint+"/conferencia?id="+id);
+        Invocation.Builder objPeticion = target.request(MediaType.APPLICATION_JSON);
+        return objPeticion.get(Conferencia.class);
+    }
 
     // Metodo cantidad articulos enviados
     public int cantidadArticulosEnviados(Integer id) {

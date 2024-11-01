@@ -39,6 +39,12 @@ public class ConferenciaRestController {
         return bandera;
     }
 
+    @GetMapping("/conferencias/conferencia")
+    public ConferenciaDTO consultarConferencia(@RequestParam Integer id) {
+        ConferenciaDTO objConferencia = conferenciaService.findById(id);
+        return objConferencia;
+    }
+
     @GetMapping("/conferencias/articulos")
     public Integer consultarArticulosEnviados(@RequestParam Integer idConferencia) {
         Integer cantidadArtEnviados = conferenciaService.cantidadArticulos(idConferencia);

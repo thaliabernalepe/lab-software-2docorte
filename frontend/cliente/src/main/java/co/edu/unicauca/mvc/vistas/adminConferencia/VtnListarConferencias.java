@@ -15,6 +15,7 @@ public class VtnListarConferencias extends javax.swing.JInternalFrame {
         initComponents();
         this.servicioConferencia = servicioConferencia;
         iniciarlizarTabla();
+        llenarTabla();
     }
 
     private void iniciarlizarTabla()

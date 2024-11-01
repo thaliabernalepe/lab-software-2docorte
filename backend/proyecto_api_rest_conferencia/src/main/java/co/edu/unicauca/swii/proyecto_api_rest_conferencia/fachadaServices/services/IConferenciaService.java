@@ -10,6 +10,7 @@ public interface IConferenciaService {
     public ConferenciaDTO save(ConferenciaDTO conferencia);
     public boolean exist(Integer id);
     public Integer cantidadArticulos(Integer id);
+    public ConferenciaDTO findById(Integer id);
     public List<ConferenciaDTO> listarConferenciasArticulo (Integer id);
     
 }

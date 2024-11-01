@@ -45,6 +45,20 @@ public class ConferenciaRepository {
         }
         return bandera;
     }
+
+    public ConferenciaEntity findById(Integer id)
+    {
+        System.out.println("Invocando a consultar un articulo");
+        ConferenciaEntity objConferencia = null;
+
+        for(ConferenciaEntity conferencia : listaConferencias){
+            if(conferencia.getIdConferencia() == id){
+                objConferencia = conferencia;
+                break;
+            }
+        }
+        return objConferencia;
+    }
     
     public Integer cantidadArticulosConferencia(Integer idConferencia){
         System.out.println("Invocando a consultar cantidad de articulos enviados a una conferencia");

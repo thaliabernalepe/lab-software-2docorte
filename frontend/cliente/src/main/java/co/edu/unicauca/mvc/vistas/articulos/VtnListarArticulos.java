@@ -1,6 +1,7 @@
 package co.edu.unicauca.mvc.vistas.articulos;
 
 import co.edu.unicauca.mvc.modelos.Articulo;
+import co.edu.unicauca.mvc.modelos.Conferencia;
 import co.edu.unicauca.mvc.modelos.Revisor;
 import co.edu.unicauca.mvc.utilidades.Utilidades;
 import co.edu.unicauca.services.ArticuloServices;
@@ -24,6 +25,7 @@ public class VtnListarArticulos extends javax.swing.JInternalFrame {
         this.servicioConferencia = servicioConferencia;
         this.jTableListarArticulos.setDefaultRenderer(Object.class, new Render());
         inicializarTabla();
+        llenarTabla();
     }
 
     private void inicializarTabla() {
@@ -31,6 +33,8 @@ public class VtnListarArticulos extends javax.swing.JInternalFrame {
         model.addColumn("Id");
         model.addColumn("Titulo");
         model.addColumn("Autores");
+        model.addColumn("Conferencia");
+        model.addColumn("idConferencia");
         model.addColumn("Estado");
         //model.addColumn("Revisor");
         model.addColumn("Eliminar");
@@ -69,10 +73,13 @@ public class VtnListarArticulos extends javax.swing.JInternalFrame {
         for (int i = 0; i < listaArticulos.size(); i++) {
             //Revisor revisor = listaArticulos.get(i).getRevisor();
             //String revisorString = (revisor != null) ? revisor.toString() : "No asignado";
+            Conferencia conferencia = servicioConferencia.consultarConferencia(listaArticulos.get(i).getIdConferencia());
             Object[] fila = {
                 listaArticulos.get(i).getIdArticulo(),
                 listaArticulos.get(i).getTitulo(),
                 listaArticulos.get(i).getAutores(),
+                conferencia.getNombre(),
+                conferencia.getIdConferencia(),
                 listaArticulos.get(i).getEstadoRevision(),
                 //revisorString,
                 JButtonEliminarArticulo,
@@ -80,7 +87,10 @@ public class VtnListarArticulos extends javax.swing.JInternalFrame {
                 //JButtonAsignarRevisor};
             model.addRow(fila);
         }
-
+        
+        jTableListarArticulos.getColumnModel().getColumn(4).setMinWidth(0);
+        jTableListarArticulos.getColumnModel().getColumn(4).setMaxWidth(0);
+        jTableListarArticulos.getColumnModel().getColumn(4).setWidth(0);
     }
 
     @SuppressWarnings("unchecked")
@@ -211,7 +221,6 @@ public class VtnListarArticulos extends javax.swing.JInternalFrame {
         VtnRegistrarArticulo1 objVtnRegistrarArticulo = new VtnRegistrarArticulo1(servicioArticulo, servicioConferencia);
         objVtnRegistrarArticulo.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         objVtnRegistrarArticulo.setVisible(true);
-        System.out.println("Mostrando ventana registrar articulo");
     }//GEN-LAST:event_jButtonRegistrarActionPerformed
 
     private void jTableListarArticulosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableListarArticulosMouseClicked
@@ -229,6 +238,9 @@ public class VtnListarArticulos extends javax.swing.JInternalFrame {
 
                 String idArticulo = jTableListarArticulos.getValueAt(row, 0).toString();
                 int idArticuloConvertido = Integer.parseInt(idArticulo);
+                String idConferencia = jTableListarArticulos.getValueAt(row, 4).toString();
+                int idConferenciaConvertido = Integer.parseInt(idConferencia);
+                
                 if (boton.getName().equals("Eliminar")) {
                     try {
                         if (Utilidades.mensajeConfirmacion("¿ Estás seguro de que quieres eliminar el artículo con identificador " + idArticulo + " "
@@ -249,7 +261,7 @@ public class VtnListarArticulos extends javax.swing.JInternalFrame {
                     VtnActualizarArticulo objVtnActualizarArticulo
                             = new VtnActualizarArticulo(servicioArticulo, servicioConferencia);
                     objVtnActualizarArticulo.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                    objVtnActualizarArticulo.cargarDatos(idArticuloConvertido);
+                    objVtnActualizarArticulo.cargarDatos(idArticuloConvertido, idConferenciaConvertido);
                     objVtnActualizarArticulo.setVisible(true);
 
                 } else if (boton.getName().equals("AsignarRevisor")) {

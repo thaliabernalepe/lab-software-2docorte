@@ -58,5 +58,12 @@ public class ConferenciaServiceImpl implements IConferenciaService{
         }.getType());
         return conferenciasDTO;
     }
+
+    @Override
+    public ConferenciaDTO findById(Integer id) {
+        ConferenciaEntity conferenciaEntity = this.servicioAccesoDatos.findById(id);
+        ConferenciaDTO conferenciaDTO = this.modelMapper.map(conferenciaEntity, ConferenciaDTO.class);
+        return conferenciaDTO;
+    }
     
 }

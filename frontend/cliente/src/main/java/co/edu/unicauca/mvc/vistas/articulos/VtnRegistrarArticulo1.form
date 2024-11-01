@@ -119,7 +119,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="jTextFieldTitulo1" min="-2" pref="163" max="-2" attributes="0"/>
+                          <Component id="jTextFieldAutores" min="-2" pref="163" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
                                   <EmptySpace min="59" pref="59" max="-2" attributes="0"/>
@@ -142,7 +142,6 @@
                                   <Component id="jLabelCantidadAutores" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="jTextFieldCantidadAutores" min="-2" pref="163" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -173,7 +172,7 @@
                           <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                           <Component id="jLabelResumen" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jTextAreaAutores" min="-2" pref="163" max="-2" attributes="0"/>
+                          <Component id="jTextAreaResumen" min="-2" pref="163" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -225,9 +224,9 @@
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="jTextFieldTitulo1" min="-2" pref="78" max="-2" attributes="0"/>
+                          <Component id="jTextFieldAutores" min="-2" pref="78" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="jTextAreaAutores" min="-2" pref="78" max="-2" attributes="0"/>
+                          <Component id="jTextAreaResumen" min="-2" pref="78" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
@@ -260,9 +259,9 @@
             <Property name="text" type="java.lang.String" value="Resumen: "/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextFieldTitulo1">
+        <Component class="javax.swing.JTextField" name="jTextFieldAutores">
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextAreaAutores">
+        <Component class="javax.swing.JTextField" name="jTextAreaResumen">
         </Component>
         <Component class="javax.swing.JTextField" name="jTextFieldCantidadAutores">
         </Component>
